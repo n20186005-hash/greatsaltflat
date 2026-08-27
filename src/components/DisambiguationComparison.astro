@@ -1,0 +1,54 @@
+---
+// Mapa de Sal style reminder: present geography as a precise field note—stone, salt, and measured cartographic contrast rather than generic SEO cards.
+import "../styles/comparison.css";
+import "../styles/comparison-faq.css";
+
+const comparisonFaq = [
+  ["Can I visit Salinas Grandes as a day trip from Purmamarca?", "Salinas Grandes is 66 km from Purmamarca on RN 52, over Cuesta de Lipán. There is no direct public bus according to Jujuy Turismo, so organise a vehicle, transfer or excursion in advance. Treat the journey as a high-altitude road trip and check conditions again on the day."],
+  ["How does weather affect access to these salt flats?", "At Salinas Grandes, weather can prevent entry to the interior. At Bonneville, the BLM limits vehicle use when the salt is wet or standing water is present and may restrict access during permitted events. Conditions at Salar de Uyuni should be checked locally and separately; no table or forecast replaces a same-day access notice."],
+  ["Can I drive on every salt flat?", "No—rules are specific to each place. In Salinas Grandes, visitors follow local guides on established tracks. Bonneville allows driving only when it is open and conditions permit. For Salar de Uyuni, follow the instructions of local authorities and the operator you choose."],
+  ["Which destinations need high-altitude preparation?", "Salinas Grandes is around 3,350 m and Salar de Uyuni is about 3,656 m, while Bonneville is much lower at roughly 1,300 m. High-Puna and Altiplano itineraries call for a conservative pace, warm layers, water and sun protection. Build extra time into the route rather than treating altitude as a quick roadside stop."],
+  ["Does this page provide a live forecast for Utah or Uyuni?", "No. The weather panel on this site uses fixed coordinates for Salinas Grandes, Jujuy only. For Utah and Bolivia, use the relevant local authorities, visitor information and current operator guidance before travelling."],
+] as const;
+const comparisonFaqSchema = { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: comparisonFaq.map(([name, text]) => ({ "@type": "Question", name, acceptedAnswer: { "@type": "Answer", text } })) };
+---
+<aside class="clarification" aria-labelledby="clarification-title">
+  <div class="clarification-mark" aria-hidden="true"><span>?</span><i></i></div>
+  <div>
+    <p class="eyebrow">Place name clarification</p>
+    <h2 id="clarification-title">Clarification: Which “Great Salt Flat” is This?</h2>
+    <p><strong>greatsaltflat.com is about Salinas Grandes in Jujuy, Argentina</strong>: a high-Puna salt flat on National Route 52. It is not a visitor guide to Utah’s Bonneville Salt Flats / Great Salt Lake Desert, nor to Bolivia’s Salar de Uyuni.</p>
+  </div>
+  <div class="clarification-links" aria-label="Related places">
+    <a href="https://www.blm.gov/visit/bonneville-salt-flats" target="_blank" rel="noreferrer">Bonneville Salt Flats, Utah <span aria-hidden="true">↗</span></a>
+    <span>Salar de Uyuni, Bolivia</span>
+  </div>
+</aside>
+
+<section id="compare" class="comparison-section" aria-labelledby="comparison-title">
+  <div class="comparison-intro">
+    <div class="section-tag"><span>02A</span>Global context</div>
+    <h2 id="comparison-title">Salinas Grandes vs Salar de Uyuni: and where Utah fits.</h2>
+    <p>These landscapes share salt, bright horizons and high visual impact, but they are distinct places with different geography, access rules and visitor context. This comparison keeps the focus on the <strong>Great Salt Flat Argentina</strong> visitors find on this site.</p>
+  </div>
+  <div class="comparison-table-wrap" role="region" aria-label="Salt flat comparison table" tabindex="0">
+    <table class="comparison-table">
+      <thead><tr><th scope="col">Compare</th><th scope="col" class="focus-column">Argentina’s Great Salt Flat<br/><span>Salinas Grandes, Jujuy</span></th><th scope="col">Bonneville Salt Flats<br/><span>Utah, USA</span></th><th scope="col">Salar de Uyuni<br/><span>Bolivia</span></th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Location &amp; region</th><td data-label="Argentina" class="focus-column">Jujuy Puna, northern Argentina.</td><td data-label="Utah">Great Salt Lake Basin, Tooele County, Utah.</td><td data-label="Bolivia">Southwestern Bolivia, on the Altiplano.</td></tr>
+        <tr><th scope="row">Elevation</th><td data-label="Argentina" class="focus-column">c. 3,350 m / 11,000 ft</td><td data-label="Utah">c. 1,300 m / 4,250 ft</td><td data-label="Bolivia">3,656 m / 11,995 ft</td></tr>
+        <tr><th scope="row">Key highlights</th><td data-label="Argentina" class="focus-column">Natural water eyes, crystallisation pools and polygonal salt textures within a working high-Puna landscape.</td><td data-label="Utah">Hard white salt crust, managed recreation and land-speed-racing heritage.</td><td data-label="Bolivia">An expansive, windswept Altiplano salt flat with a distinct Bolivian setting.</td></tr>
+        <tr><th scope="row">Accessibility</th><td data-label="Argentina" class="focus-column">RN 52 from Purmamarca via Cuesta de Lipán; confirm weather, road conditions and guided entry on the day.</td><td data-label="Utah">I-80, Exit 4 near Wendover; public access is subject to seasonal and event closures.</td><td data-label="Bolivia">A separate southwest-Bolivia destination; local route and tour conditions should be checked independently.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="comparison-notes">
+    <article><p class="eyebrow">Focus of this guide</p><h3>Great Salt Flat Argentina means Salinas Grandes, Jujuy.</h3><p>From Purmamarca, RN 52 climbs through Cuesta de Lipán before reaching the salt flat. The road journey is part of the experience and requires high-altitude preparation.</p></article>
+    <article><p class="eyebrow">A useful distinction</p><h3>Utah Great Salt Lake Desert vs Argentina Salt Flat</h3><p>Bonneville is a BLM-managed recreation area in the western United States. Salinas Grandes is an Andean Puna landscape where local guided access, salt work and mountain conditions shape a different kind of visit.</p></article>
+  </div>
+  <section class="comparison-faq" aria-labelledby="comparison-faq-title">
+    <div class="comparison-faq-heading"><p class="eyebrow">Trip planning FAQ</p><h2 id="comparison-faq-title">Travel and climate questions, answered.</h2><p>Use these distinctions to plan responsibly. Conditions, road access and local rules can change without notice.</p></div>
+    <div class="comparison-faq-list">{comparisonFaq.map(([question, answer]) => <details><summary>{question}<span aria-hidden="true">+</span></summary><p>{answer}</p></details>)}</div>
+  </section>
+</section>
+<script is:inline type="application/ld+json" set:html={JSON.stringify(comparisonFaqSchema)}></script>

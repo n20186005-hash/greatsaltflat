@@ -1,0 +1,9 @@
+---
+// Mapa de Sal style reminder: direct English legal routes with the same calm, document-first experience.
+import LegalPage from "../../components/LegalPage.astro";
+import type { LegalDocument } from "../../lib/content";
+export const prerender = true;
+export function getStaticPaths() { return ["privacy", "terms", "cookies"].map((legal) => ({ params: { legal } })); }
+const legal = Astro.params.legal as LegalDocument;
+---
+<LegalPage lang="en" document={legal} />
