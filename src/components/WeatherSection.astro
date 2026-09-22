@@ -1,0 +1,369 @@
+---
+// Mapa de Sal style reminder: a weather instrument set in salt-paper fields.
+// Server Component: data is fetched and cached on the server (no client JS, no keys).
+import "../styles/weather.css";
+import type { Language } from "../lib/content";
+
+interface Props { lang: Language; }
+const { lang } = Astro.props;
+
+const labelsEs = {
+      kicker: "Tiempo ahora",
+      title: "Clima en Salinas Grandes",
+      intro: "Condiciones actuales y el pronóstico de varios días para organizar la salida a la Puna.",
+      updated: "Modelo",
+      feels: "Sensación",
+      wind: "Viento",
+      gusts: "Ráfagas",
+      humidity: "Humedad",
+      rain: "Prob. de lluvia",
+      uv: "UV máx",
+      forecast: "Próximos días",
+      umbrella: "Llevá paraguas o impermeable: la lluvia es probable.",
+      windAdvice: "Abrigate y sujetá lo liviano: el viento sopla fuerte.",
+      sun: "Cuidá piel y ojos: radiación muy alta a esta altura.",
+      calm: "Condiciones estables para la visita; igual confirmá la ruta.",
+      caution: "El pronóstico orienta la decisión, pero no reemplaza el aviso de autoridades ni el estado de la RN 52.",
+      source: "Datos meteorológicos",
+      provider: "Open-Meteo",
+      fallback: "No pudimos obtener el pronóstico en este momento. Confirmá el clima con fuentes oficiales antes de salir.",
+      today: "Hoy",
+    };
+const labelsEn = {
+      kicker: "Weather now",
+      title: "Weather at Salinas Grandes",
+      intro: "Current conditions and the several-day forecast to help plan a Puna trip.",
+      updated: "Model",
+      feels: "Feels like",
+      wind: "Wind",
+      gusts: "Gusts",
+      humidity: "Humidity",
+      rain: "Rain chance",
+      uv: "UV max",
+      forecast: "Next days",
+      umbrella: "Bring an umbrella or rain layer: rain is likely.",
+      windAdvice: "Dress warm and secure light items: the wind blows strong.",
+      sun: "Protect skin and eyes: radiation is very high at this altitude.",
+      calm: "Stable conditions for a visit; still confirm the road.",
+      caution: "This forecast supports planning, but does not replace official notices or RN 52 road status.",
+      source: "Weather data",
+      provider: "Open-Meteo",
+      fallback: "We could not fetch the forecast right now. Check the weather through official sources before leaving.",
+      today: "Today",
+    };
+const labels = lang === "es" ? labelsEs : labelsEn;
+
+// Wind (km/h) → Beaufort level, used to trigger wind advice.
+const kmhToBeaufort = (kmh: number) => {
+  const k = Math.max(0, kmh);
+  if (k < 1) return 0; if (k < 6) return 1; if (k < 12) return 2; if (k < 20) return 3;
+  if (k < 29) return 4; if (k < 39) return 5; if (k < 50) return 6; if (k < 62) return 7;
+  if (k < 75) return 8; if (k < 89) return 9; if (k < 103) return 10; return 11;
+};
+const isThunder = (c: number) => c === 95 || c === 96 || c === 99;
+const isHeavyRain = (c: number) => c === 65 || c === 82 || (c >= 80 && c <= 82);
+const isRain = (c: number) => [51, 53, 55, 61, 63, 65, 71, 73, 75, 80, 81, 82].includes(c);
+const isDrizzle = (c: number) => c === 51 || c === 53 || c === 55;
+const isFog = (c: number) => c === 45 || c === 48;
+const isClear = (c: number) => c === 0 || c === 1;
+const isCloud = (c: number) => c === 3;
+
+// Localized advice phrase library. Tailored to a high-altitude salt flat (Puna):
+// strong UV, cold nights, open flat terrain (lightning/wind exposure), summer rain.
+const adviceEs = {
+  popOutfit: "Probabilidad de lluvia alta: llevá campera impermeable o paraguas",
+  popActivity: "Salí con protección de lluvia; si podés, dejá para otro momento el recorrido a pie sobre el salar",
+  itemUmbrella: "Paraguas o impermeable",
+  itemSunscreen: "Protector solar",
+  drizzleActivity: "Hay llovizna y el suelo se pone resbaloso: cuidá los pasos",
+  heavyRainActivity: "La lluvia es fuerte: la sal se moja y los bajos se llenan de agua; no entres al interior del salar",
+  rainRisk: "Lluvia intensa: evitá las zonas bajas y la superficie abierta del salar; la excursión guiada puede suspenderse",
+  itemRaincoat: "Impermeable (con viento, el paraguas largo se da vuelta)",
+  rainActivity: "La experiencia al aire libre pierde brillo; usá calzado que no resbale",
+  thunderRisk: "Tormenta eléctrica: no te quedes en la superficie abierta del salar ni en las partes altas; alejate de estructuras metálicas y del techo del vehículo",
+  thunderActivity: "Las actividades al aire libre y acuáticas probablemente se suspendan; mejor observar desde el vehículo o el parador",
+  hotOutfit: "Hace calor: ropa liviana que transpire",
+  hotActivity: "Evitá la hora central del día y acortá la exposición al sol",
+  itemHeat: "Protector solar, bastante agua y algo para el calor",
+  uvOutfit: "Radiación fuerte: lentes de sol y gorra, y protector en la piel que queda expuesta",
+  uvActivity: "A esta altura la radiación es intensa: limitá el sol directo y tomá agua",
+  coldOutfit: "Hace frío: abrigate bien",
+  itemWarm: "Abrigo de entretiempo, bufanda",
+  diffOutfit: "La diferencia entre el día y la noche es grande: llevá una prenda para poner y sacar",
+  itemLayer: "Ropa por capas, para sumar o quitar",
+  windActivity: "Viento fuerte: en los miradores sujetá lo liviano; la gorra vuela",
+  itemHat: "Una gorra que se sostenga",
+  windRisk: "Viento muy fuerte: alejate de las partes expuestas y de las bordas; la sal en suspensión irrita los ojos; la navegación o el teleférico pueden parar",
+  itemNoUmbrella: "Mejor impermeable que paraguas largo (por el viento)",
+  fogRisk: "Visibilidad baja: no es buen momento para ver de lejos la montaña ni el espejo de sal",
+  fogActivity: "Las vistas pierden fuerza; considerá otro día o quedate en el parador",
+  itemMask: "Barbijo",
+  clearActivity: "Día despejado: ideal para recorrer y fotografiar",
+  cloudActivity: "Luz suave: muy buena para estar al aire libre y sacar fotos",
+  calm: "Tiempo estable: podés planificar con normalidad, pero confirmá la ruta antes de salir",
+};
+const adviceEn = {
+  popOutfit: "High rain chance — a waterproof jacket or umbrella",
+  popActivity: "Go protected; if you can, save the walk on the salt flat for another time",
+  itemUmbrella: "Umbrella or rain layer",
+  itemSunscreen: "Sunscreen",
+  drizzleActivity: "Drizzle makes surfaces slippery — watch your step",
+  heavyRainActivity: "Heavy rain: the salt gets wet and low spots flood; don't go inside the salt flat",
+  rainRisk: "Strong rain: avoid the low and open parts of the salar; the guided tour may pause",
+  itemRaincoat: "Raincoat (long umbrellas flip in wind)",
+  rainActivity: "The outdoor experience is weaker; wear non-slip footwear",
+  thunderRisk: "Thunderstorm: stay off the open salt surface and high ground; keep away from metal and vehicle roofs",
+  thunderActivity: "Open and water activities likely pause; view from the vehicle or parador instead",
+  hotOutfit: "Warm weather — light, breathable clothing",
+  hotActivity: "Avoid midday and shorten sun exposure",
+  itemHeat: "Sunscreen, plenty of water, heat protection",
+  uvOutfit: "Strong UV — sunglasses and brimmed hat, sunscreen on exposed skin",
+  uvActivity: "At this altitude radiation is intense: limit direct sun and drink water",
+  coldOutfit: "Cold — dress warm",
+  itemWarm: "Warm coat, scarf",
+  diffOutfit: "Big day-night swing — bring a layer you can add or remove",
+  itemLayer: "Layered clothing",
+  windActivity: "Windy: secure light items at viewpoints; hats fly off",
+  itemHat: "A hat that stays on",
+  windRisk: "Very high wind: keep away from exposed edges; blowing salt irritates eyes; boats/cable cars may stop",
+  itemNoUmbrella: "Prefer a raincoat over a long umbrella (wind)",
+  fogRisk: "Low visibility — poor time for distant mountain or salt-mirror views",
+  fogActivity: "Views weaken; consider another day or stay at the parador",
+  itemMask: "Face mask",
+  clearActivity: "Clear day — great for walking and photos",
+  cloudActivity: "Soft light — good for long outdoor stays and photography",
+  calm: "Stable weather — plan as usual, but confirm the road before leaving",
+};
+
+// Builds four advice groups from weather data. Only matching items are returned
+// (empty groups are hidden in the UI). Risk is derived from current conditions —
+// no official alert source is fabricated.
+function buildAdvice(
+  lang: Language,
+  d: { code: number; maxT: number; minT: number; uv: number; pop: number; wind: number; gusts: number; humidity: number },
+) {
+  const P = lang === "es" ? adviceEs : adviceEn;
+  const outfit: string[] = [], activity: string[] = [], items: string[] = [], risk: string[] = [];
+  const bf = kmhToBeaufort(Math.max(d.wind, d.gusts));
+  if (d.pop >= 60) { outfit.push(P.popOutfit); activity.push(P.popActivity); items.push(P.itemUmbrella); }
+  if (isDrizzle(d.code)) { activity.push(P.drizzleActivity); items.push(P.itemUmbrella); }
+  if (isHeavyRain(d.code)) { risk.push(P.rainRisk); activity.push(P.heavyRainActivity); items.push(P.itemRaincoat); }
+  else if (isRain(d.code)) { activity.push(P.rainActivity); }
+  if (isThunder(d.code)) { risk.push(P.thunderRisk); activity.push(P.thunderActivity); }
+  if (d.maxT >= 32) { outfit.push(P.hotOutfit); activity.push(P.hotActivity); items.push(P.itemHeat); }
+  if (d.uv >= 5) { items.push(P.itemSunscreen); outfit.push(P.uvOutfit); }
+  if (d.uv >= 8) { activity.push(P.uvActivity); }
+  if (d.maxT <= 10) { outfit.push(P.coldOutfit); items.push(P.itemWarm); }
+  if (d.maxT - d.minT > 8) { outfit.push(P.diffOutfit); items.push(P.itemLayer); }
+  if (bf >= 7) { risk.push(P.windRisk); items.push(P.itemNoUmbrella); }
+  else if (bf >= 5) { activity.push(P.windActivity); items.push(P.itemHat); }
+  if (isFog(d.code)) { risk.push(P.fogRisk); activity.push(P.fogActivity); items.push(P.itemMask); }
+  if (isClear(d.code) && d.maxT < 32 && d.uv < 8) { activity.push(P.clearActivity); }
+  if (isCloud(d.code)) { activity.push(P.cloudActivity); }
+  if (!outfit.length && !activity.length && !items.length && !risk.length) activity.push(P.calm);
+  return { outfit, activity, items, risk };
+}
+
+const lat = -23.608535;
+const lon = -65.867148;
+const API = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,apparent_temperature,relative_humidity_2m,precipitation,weather_code,wind_speed_10m,wind_gusts_10m&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max,uv_index_max&timezone=America%2FArgentina%2FJujuy&forecast_days=7&wind_speed_unit=kmh`;
+
+const WMO: Record<number, { label: string; cls: string }> = {
+  0: { label: lang === "es" ? "Cielo despejado" : "Clear sky", cls: "clear" },
+  1: { label: lang === "es" ? "Mayormente despejado" : "Mainly clear", cls: "clear" },
+  2: { label: lang === "es" ? "Parcialmente nublado" : "Partly cloudy", cls: "cloud" },
+  3: { label: lang === "es" ? "Nublado" : "Overcast", cls: "cloud" },
+  45: { label: lang === "es" ? "Niebla" : "Fog", cls: "cloud" },
+  48: { label: lang === "es" ? "Niebla con escarcha" : "Rime fog", cls: "cloud" },
+  51: { label: lang === "es" ? "Llovizna leve" : "Light drizzle", cls: "rain" },
+  53: { label: lang === "es" ? "Llovizna" : "Drizzle", cls: "rain" },
+  55: { label: lang === "es" ? "Llovizna intensa" : "Dense drizzle", cls: "rain" },
+  61: { label: lang === "es" ? "Lluvia leve" : "Light rain", cls: "rain" },
+  63: { label: lang === "es" ? "Lluvia" : "Rain", cls: "rain" },
+  65: { label: lang === "es" ? "Lluvia intensa" : "Heavy rain", cls: "rain" },
+  71: { label: lang === "es" ? "Nieve leve" : "Light snow", cls: "rain" },
+  73: { label: lang === "es" ? "Nieve" : "Snow", cls: "rain" },
+  75: { label: lang === "es" ? "Nieve intensa" : "Heavy snow", cls: "rain" },
+  80: { label: lang === "es" ? "Chubascos" : "Showers", cls: "rain" },
+  81: { label: lang === "es" ? "Chubascos" : "Showers", cls: "rain" },
+  82: { label: lang === "es" ? "Chubascos intensos" : "Violent showers", cls: "rain" },
+  95: { label: lang === "es" ? "Tormenta" : "Thunderstorm", cls: "storm" },
+  96: { label: lang === "es" ? "Tormenta con granizo" : "Storm with hail", cls: "storm" },
+  99: { label: lang === "es" ? "Tormenta con granizo" : "Storm with hail", cls: "storm" },
+};
+const condition = (code?: number) =>
+  code == null
+    ? { label: lang === "es" ? "Sin datos" : "No data", cls: "cloud" }
+    : (WMO[code] ?? { label: lang === "es" ? "Cielo variable" : "Variable sky", cls: "cloud" });
+
+// Module-level cache (short TTL). In Cloudflare Workers this also benefits from isolate reuse.
+const store = ((globalThis as any).__gsfWeatherCache ??= new Map<string, { data: any; ts: number }>());
+const KEY = "salinas-grandes";
+const TTL = 10 * 60 * 1000;
+let weather: any = null;
+const now = Date.now();
+const hit = store.get(KEY);
+if (hit && now - hit.ts < TTL) {
+  weather = hit.data;
+} else {
+  try {
+    const res = await fetch(API, { headers: { accept: "application/json" } });
+    if (res.ok) {
+      const data = await res.json();
+      weather = data;
+      store.set(KEY, { data, ts: now });
+    }
+  } catch {
+    weather = null;
+  }
+}
+
+const cur = weather?.current;
+const daily = weather?.daily;
+const condNow = condition(cur?.weather_code);
+const updated = cur?.time?.split("T")[1] ?? "";
+const days = daily
+  ? daily.time.map((iso: string, i: number) => ({
+      iso,
+      label: i === 0 ? labels.today : new Intl.DateTimeFormat(lang === "es" ? "es-AR" : "en-US", { weekday: "short", timeZone: "America/Argentina/Jujuy" }).format(new Date(iso + "T12:00")),
+      code: daily.weather_code[i],
+      max: Math.round(daily.temperature_2m_max[i]),
+      min: Math.round(daily.temperature_2m_min[i]),
+      pop: daily.precipitation_probability_max[i],
+      uv: daily.uv_index_max[i],
+    }))
+  : [];
+const today = days[0];
+
+const advice = (cur && daily)
+  ? buildAdvice(lang, {
+      code: cur.weather_code,
+      maxT: Math.round(daily.temperature_2m_max[0]),
+      minT: Math.round(daily.temperature_2m_min[0]),
+      uv: daily.uv_index_max[0],
+      pop: daily.precipitation_probability_max[0],
+      wind: cur.wind_speed_10m ?? 0,
+      gusts: cur.wind_gusts_10m ?? 0,
+      humidity: cur.relative_humidity_2m ?? 0,
+    })
+  : null;
+---
+<section class="weather-section" aria-labelledby="weather-title">
+  <div class="weather-heading">
+    <div>
+      <p class="eyebrow">{labels.kicker}</p>
+      <h2 id="weather-title">{labels.title}</h2>
+      <p>{labels.intro}</p>
+    </div>
+    <div class="weather-reference"><span>23.608535° S · 65.867148° O</span><b>3.450 m</b></div>
+  </div>
+
+  {weather ? (
+    <>
+      <div class="weather-board">
+        <div class="weather-primary">
+          <p class="weather-status">{condNow.label}</p>
+          <p class="weather-temperature"><span>{Math.round(cur.temperature_2m)}</span><sup>°C</sup></p>
+          <p class="weather-summary">{labels.feels}: {Math.round(cur.apparent_temperature)} °C · {labels.rain}: {today?.pop ?? 0}%</p>
+          <p class="weather-updated">{labels.updated}: {updated}</p>
+        </div>
+        <dl class="weather-metrics">
+          <div><dt>{labels.feels}</dt><dd>{Math.round(cur.apparent_temperature)} °C</dd></div>
+          <div><dt>{labels.wind}</dt><dd>{Math.round(cur.wind_speed_10m)} km/h</dd></div>
+          <div><dt>{labels.gusts}</dt><dd>{Math.round(cur.wind_gusts_10m ?? 0)} km/h</dd></div>
+          <div><dt>{labels.humidity}</dt><dd>{Math.round(cur.relative_humidity_2m)}%</dd></div>
+          <div><dt>{labels.rain}</dt><dd>{today?.pop ?? 0}%</dd></div>
+          <div><dt>{labels.uv}</dt><dd>{today?.uv ?? "—"}</dd></div>
+        </dl>
+      </div>
+
+      <div class="weather-forecast" aria-label={labels.forecast}>
+        <p class="eyebrow">{labels.forecast}</p>
+        <ul class="forecast-list">
+          {days.map((d) => (
+            <li class={`forecast-day cond-${condition(d.code).cls}`}>
+              <span class="fc-label">{d.label}</span>
+              <span class="fc-cond">{condition(d.code).label}</span>
+              <span class="fc-temp"><b>{d.max}°</b> / {d.min}°</span>
+              <span class="fc-pop">{d.pop}% {lang === "es" ? "lluvia" : "rain"}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      {advice && (
+        <div class="weather-advice">
+          {advice.risk.length > 0 && (
+            <div class="advice-block advice-risk">
+              <h3>{lang === "es" ? "⚠️ Riesgo" : "⚠️ Risk"}</h3>
+              <ul>{advice.risk.map((x) => <li>{x}</li>)}</ul>
+            </div>
+          )}
+          {advice.outfit.length > 0 && (
+            <div class="advice-block">
+              <h3>{lang === "es" ? "Para vestir" : "What to wear"}</h3>
+              <ul>{advice.outfit.map((x) => <li>{x}</li>)}</ul>
+            </div>
+          )}
+          {advice.activity.length > 0 && (
+            <div class="advice-block">
+              <h3>{lang === "es" ? "Cómo disfrutar" : "How to enjoy it"}</h3>
+              <ul>{advice.activity.map((x) => <li>{x}</li>)}</ul>
+            </div>
+          )}
+          {advice.items.length > 0 && (
+            <div class="advice-block">
+              <h3>{lang === "es" ? "Llevá con vos" : "Bring along"}</h3>
+              <ul>{advice.items.map((x) => <li>{x}</li>)}</ul>
+            </div>
+          )}
+        </div>
+      )}
+
+      <div class="weather-footer">
+        <p>{labels.caution}</p>
+        <div><a href="https://open-meteo.com/" target="_blank" rel="noreferrer">{labels.source}: {labels.provider} <span aria-hidden="true">↗</span></a></div>
+      </div>
+    </>
+  ) : (
+    <div class="weather-fallback">
+      <p>{labels.fallback}</p>
+      <p>{labels.caution}</p>
+    </div>
+  )}
+</section>
+
+<style>
+  .weather-forecast { max-width: 1160px; margin: 2.4rem auto 0; }
+  .weather-forecast .eyebrow { margin-bottom: 1rem; }
+  .forecast-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(7, 1fr); gap: 0; border: 1px solid var(--line); background: var(--paper); }
+  .forecast-day { padding: 1.1rem .8rem; border-right: 1px solid var(--line); display: grid; gap: .45rem; text-align: center; }
+  .forecast-day:last-child { border-right: 0; }
+  .fc-label { font-weight: 700; color: var(--blue-deep); font-family: var(--serif); font-size: 1rem; }
+  .fc-cond { font-size: .8rem; color: var(--muted); min-height: 2.4em; line-height: 1.2; }
+  .fc-temp { font-size: .95rem; color: var(--ink); }
+  .fc-temp b { color: var(--terracotta); }
+  .fc-pop { font-size: .76rem; color: var(--blue); font-weight: 600; }
+  .forecast-day.cond-rain { background: #eaf2f6; }
+  .forecast-day.cond-storm { background: #eceaf4; }
+  .weather-advice { max-width: 1160px; margin: 1.6rem auto 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; align-items: start; }
+  .advice-block { background: #f4f7f8; border: 1px solid var(--line); border-top: 3px solid var(--blue); padding: 1.1rem 1.2rem; }
+  .advice-block h3 { margin: 0 0 .6rem; font-family: var(--serif); font-size: 1.05rem; color: var(--blue-deep); }
+  .advice-block ul { margin: 0; padding-left: 1.1rem; }
+  .advice-block li { font-size: .95rem; color: var(--ink); margin-bottom: .4rem; }
+  .advice-risk { background: #fbeceb; border-top-color: var(--terracotta); grid-column: 1 / -1; }
+  .advice-risk h3 { color: var(--terracotta); }
+  .advice-risk li { color: #7a2118; }
+  @media (max-width: 700px) { .weather-advice { grid-template-columns: 1fr; } }
+  .weather-fallback { max-width: 1160px; margin: 0 auto; padding: 2rem; background: #dcecf1; border-left: 3px solid var(--terracotta); }
+  .weather-fallback p { margin: 0 0 .5rem; color: var(--blue-deep); }
+  @media (max-width: 920px) {
+    .forecast-list { grid-template-columns: repeat(4, 1fr); }
+    .forecast-day:nth-child(4n) { border-right: 0; }
+  }
+  @media (max-width: 600px) {
+    .forecast-list { grid-template-columns: repeat(2, 1fr); }
+    .forecast-day:nth-child(4n) { border-right: 1px solid var(--line); }
+    .forecast-day:nth-child(2n) { border-right: 0; }
+  }
+</style>

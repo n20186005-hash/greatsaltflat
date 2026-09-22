@@ -1,0 +1,98 @@
+---
+// Mapa de Sal style reminder: cartographic, neutral, type-first. No merchant names.
+import "../styles/guide.css";
+import { guide, type Language } from "../lib/content";
+
+interface Props { lang: Language; }
+const { lang } = Astro.props;
+const g = guide[lang];
+const t = {
+  servicesLabel: lang === "es" ? "Servicios" : "Services",
+  seasonLabel: lang === "es" ? "Temporada" : "Season",
+  itineraryLabel: lang === "es" ? "Itinerarios" : "Itineraries",
+  routesLabel: lang === "es" ? "Rutas" : "Routes",
+  scienceLabel: lang === "es" ? "Ciencia" : "Science",
+  tips: lang === "es" ? "Tips" : "Tips",
+} as const;
+---
+<section id="servicios" class="guide-section services-section">
+  <div class="section-heading">
+    <div class="section-tag"><span>08</span>{g.services.kicker}</div>
+    <h2>{g.services.title}</h2>
+    <p>{g.services.intro}</p>
+  </div>
+  <div class="services-grid">
+    {g.services.items.map(([title, body]) => (
+      <article class="service-card"><h3>{title}</h3><p>{body}</p></article>
+    ))}
+  </div>
+</section>
+
+<section id="temporada" class="guide-section season-section">
+  <div class="section-heading">
+    <div class="section-tag"><span>09</span>{g.seasonal.kicker}</div>
+    <h2>{g.seasonal.title}</h2>
+    <p>{g.seasonal.intro}</p>
+  </div>
+  <div class="table-wrap" role="region" aria-label={g.seasonal.title} tabindex="0">
+    <table class="season-table">
+      <thead><tr>{g.seasonal.columns.map((c) => <th scope="col">{c}</th>)}</tr></thead>
+      <tbody>
+        {g.seasonal.rows.map((row) => (
+          <tr>{row.map((cell, i) => i === 0 ? <th scope="row">{cell}</th> : <td>{cell}</td>)}</tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+  <p class="season-note">{g.seasonal.note}</p>
+</section>
+
+<section id="itinerarios" class="guide-section itinerary-section">
+  <div class="section-heading">
+    <div class="section-tag"><span>10</span>{g.itineraries.kicker}</div>
+    <h2>{g.itineraries.title}</h2>
+    <p>{g.itineraries.intro}</p>
+  </div>
+  <div class="itinerary-grid">
+    {g.itineraries.items.map((it) => (
+      <article class="itinerary-card">
+        <span class="itinerary-tag">{it.tag}</span>
+        <h3>{it.title}</h3>
+        <p>{it.body}</p>
+        <p class="itinerary-tips-label">{t.tips}</p>
+        <ul>{it.tips.map((tip) => <li>{tip}</li>)}</ul>
+      </article>
+    ))}
+  </div>
+</section>
+
+<section id="rutas" class="guide-section routes-section">
+  <div class="section-heading">
+    <div class="section-tag"><span>11</span>{g.routes.kicker}</div>
+    <h2>{g.routes.title}</h2>
+    <p>{g.routes.intro}</p>
+  </div>
+  <div class="routes-grid">
+    <article class="route-block">
+      <h3>{g.routes.halfDay.title}</h3>
+      <ol class="route-steps">{g.routes.halfDay.steps.map((s) => <li>{s}</li>)}</ol>
+    </article>
+    <article class="route-block">
+      <h3>{g.routes.fullDay.title}</h3>
+      <ol class="route-steps">{g.routes.fullDay.steps.map((s) => <li>{s}</li>)}</ol>
+    </article>
+  </div>
+</section>
+
+<section id="ciencia" class="guide-section science-section">
+  <div class="section-heading">
+    <div class="section-tag"><span>12</span>{g.science.kicker}</div>
+    <h2>{g.science.title}</h2>
+    <p>{g.science.intro}</p>
+  </div>
+  <div class="science-list">
+    {g.science.items.map(([title, body]) => (
+      <article><h3>{title}</h3><p>{body}</p></article>
+    ))}
+  </div>
+</section>

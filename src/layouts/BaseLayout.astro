@@ -1,10 +1,11 @@
 ---
 // Mapa de Sal style reminder: mineral whites, cartographic rules, Azul Salar; never generic rounded-card UI.
 import "../styles/global.css";
-import { copy, imageUrls, type Language } from "../lib/content";
-interface Props { lang: Language; title: string; description: string; canonicalPath: string; socialTitle?: string; socialDescription?: string; keywords?: string; }
-const { lang, title, description, canonicalPath, socialTitle = title, socialDescription = description, keywords } = Astro.props;
+import { copy, imageUrls, SITE_NAME, type Language } from "../lib/content";
+interface Props { lang: Language; title: string; description: string; canonicalPath: string; socialTitle?: string; socialDescription?: string; keywords?: string; noindex?: boolean; }
+const { lang, title, description, canonicalPath, socialTitle = title, socialDescription = description, keywords, noindex = false } = Astro.props;
 const t = copy[lang];
+const siteName = SITE_NAME[lang];
 const canonical = Astro.site ? new URL(canonicalPath, Astro.site).href : undefined;
 const englishPath = lang === "en" ? canonicalPath : canonicalPath === "/" ? "/en/" : `/en${canonicalPath}`;
 const spanishPath = lang === "es" ? canonicalPath : canonicalPath.replace(/^\/en/, "") || "/";
@@ -19,10 +20,10 @@ const cookieRejected = lang === "es" ? "Se rechazaron las cookies no esenciales.
 <!doctype html>
 <html lang={lang}>
   <head>
-    <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><meta name="description" content={description} />{keywords && <meta name="keywords" content={keywords} />}<meta name="theme-color" content="#135E88" />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" /><link rel="icon" href="/favicon-32.svg" sizes="32x32" type="image/svg+xml" /><link rel="apple-touch-icon" href="/apple-touch-icon.svg" />
+    <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><meta name="description" content={description} />{keywords && <meta name="keywords" content={keywords} />}<meta name="theme-color" content="#135E88" />{noindex && <meta name="robots" content="noindex, follow" />}
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" /><link rel="icon" href="/favicon-32.svg" sizes="32x32" type="image/svg+xml" /><link rel="apple-touch-icon" href="/apple-touch-icon.svg" /><link rel="manifest" href="/site.webmanifest" />
     {canonical && <link rel="canonical" href={canonical} />}{spanishUrl && <link rel="alternate" hreflang="es" href={spanishUrl} />}{englishUrl && <link rel="alternate" hreflang="en" href={englishUrl} />}{spanishUrl && <link rel="alternate" hreflang="x-default" href={spanishUrl} />}
-    <meta property="og:type" content="website" /><meta property="og:site_name" content="Salinas Grandes Guide" /><meta property="og:title" content={socialTitle} /><meta property="og:description" content={socialDescription} />{canonical && <meta property="og:url" content={canonical} />}{socialImage && <meta property="og:image" content={socialImage} />}<meta property="og:locale" content={t.locale} /><meta name="twitter:card" content="summary_large_image" /><meta name="twitter:title" content={socialTitle} /><meta name="twitter:description" content={socialDescription} />
+    <meta property="og:type" content="website" /><meta property="og:site_name" content={siteName} /><meta property="og:title" content={socialTitle} /><meta property="og:description" content={socialDescription} />{canonical && <meta property="og:url" content={canonical} />}{socialImage && <meta property="og:image" content={socialImage} />}{socialImage && <meta property="og:image:alt" content="Salinas Grandes — Parador La Curva, Jujuy, Argentina" />}<meta property="og:locale" content={t.locale} /><meta name="twitter:card" content="summary_large_image" /><meta name="twitter:title" content={socialTitle} /><meta name="twitter:description" content={socialDescription} />
     <title>{title}</title><link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
   </head>
   <body>
@@ -33,6 +34,9 @@ const cookieRejected = lang === "es" ? "Se rechazaron las cookies no esenciales.
       const preference = localStorage.getItem("salinas-cookie-preferences");
       if (preference === "analytics") { const script = document.createElement("script"); script.async = true; script.src = `https://www.googletagmanager.com/gtag/js?id=${gaId}`; document.head.appendChild(script); window.dataLayer = window.dataLayer || []; function gtag(){ window.dataLayer.push(arguments); } gtag("js", new Date()); gtag("config", gaId, { anonymize_ip: true }); }
       document.querySelectorAll("[data-cookie-action]").forEach((button) => { button.addEventListener("click", () => { localStorage.setItem("salinas-cookie-preferences", button.dataset.cookieAction); const status = document.querySelector("[data-cookie-status]"); if (status) status.textContent = button.dataset.cookieAction === "analytics" ? cookieSaved : cookieRejected; }); });
+    </script>
+    <script is:inline>
+      if ("serviceWorker" in navigator) { window.addEventListener("load", () => { navigator.serviceWorker.register("/sw.js").catch(() => {}); }); }
     </script>
   </body>
 </html>
