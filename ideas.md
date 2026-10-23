@@ -49,7 +49,7 @@ Los titulares usan **Fraunces**, de carácter editorial y humano, en pesos 600�
 
 ### Esencia de marca
 
-**Una guía independiente, bilingüe y sin fines de lucro para comprender y recorrer Salinas Grandes con contexto, orientación y respeto por la Puna.**
+**Una guía independiente, bilingüe para comprender y recorrer Salinas Grandes con contexto, orientación y respeto por la Puna.**
 
 Personalidad: **rigurosa, serena, terrenal**.
 

@@ -4,6 +4,22 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import { legalCopy, type Language, type LegalDocument } from "../lib/content";
 interface Props { lang: Language; document: LegalDocument }
 const { lang, document } = Astro.props; const doc = legalCopy[lang][document];
-const home = lang === "en" ? "/en/" : "/"; const canonicalPath = lang === "en" ? `/en/${document}` : `/${document}`;
+const home = lang === "en" ? "/en/" : "/"; const canonicalPath = lang === "en" ? `/en/${document}/` : `/${document}/`;
 ---
-<BaseLayout lang={lang} title={`${doc.title} | Salinas Grandes Guide`} description={doc.intro} canonicalPath={canonicalPath} noindex><main class="legal-page"><div class="legal-hero"><a href={home}>← {lang === "es" ? "Volver a la guía" : "Back to guide"}</a><p class="eyebrow">Salinas Grandes · RN 52</p><h1>{doc.title}</h1><p>{doc.intro}</p></div><article class="legal-article">{doc.sections.map(([title,body],index)=><section><span>0{index+1}</span><div><h2>{title}</h2><p>{body}</p></div></section>)}</article>{document === "cookies" && <section class="cookie-controls"><h2>{lang === "es" ? "Elegí tus preferencias" : "Choose your preferences"}</h2><p>{lang === "es" ? "La elección se guarda en este navegador. Las cookies necesarias permanecen activas." : "Your choice is stored in this browser. Necessary cookies remain active."}</p><div><button class="button button-primary" type="button" data-cookie-action="analytics">{lang === "es" ? "Guardar preferencias" : "Save preferences"}</button><button class="button button-quiet" type="button" data-cookie-action="reject">{lang === "es" ? "Rechazar todo" : "Reject all"}</button></div><p class="cookie-status" data-cookie-status aria-live="polite"></p></section>}</main></BaseLayout>
+<BaseLayout lang={lang} title={`${doc.title} | ${lang === "es" ? "Guía Salinas Grandes" : "Salinas Grandes Guide"}`} description={doc.intro} canonicalPath={canonicalPath} noindex><main class="legal-page" id="main-content"><div class="legal-hero"><a href={home}>← {lang === "es" ? "Volver a la guía" : "Back to guide"}</a><p class="eyebrow">Salinas Grandes · RN 52</p><h1>{doc.title}</h1><p>{doc.intro}</p></div><article class="legal-article">{doc.sections.map(([title,body],index)=><section><span>0{index+1}</span><div><h2>{title}</h2><p>{body}</p></div></section>)}</article>{document === "cookies" && <section class="cookie-controls"><h2>{lang === "es" ? "Elegí tus preferencias" : "Choose your preferences"}</h2><p>{lang === "es" ? "Estos botones controlan solo Google Analytics. Revisá el resultado de guardado." : "These buttons control Google Analytics only. Check the save result."}</p><div><button class="button button-primary" type="button" data-cookie-action="analytics">{lang === "es" ? "Activar analítica" : "Enable analytics"}</button><button class="button button-quiet" type="button" data-cookie-action="reject">{lang === "es" ? "Rechazar analítica" : "Reject analytics"}</button></div><p class="cookie-status" data-cookie-status aria-live="polite"></p></section>}</main>
+
+<script is:inline>
+ (()=>{
+  const status=document.querySelector('[data-cookie-status]');if(!status)return;
+  const es=document.documentElement.lang==='es';
+  status.textContent=window.saltAnalytics?.get()?(es?'Analítica activada en esta página.':'Analytics is enabled on this page.'):(es?'Analítica desactivada en esta página.':'Analytics is disabled on this page.');
+  document.querySelectorAll('[data-cookie-action]').forEach(button=>button.addEventListener('click',()=>{
+   const result=window.saltAnalytics?.set(button.dataset.cookieAction==='analytics');
+   if(result?.saved===true)status.textContent=result.effective?(es?'Elección guardada. Analítica activada.':'Choice saved. Analytics enabled.'):(es?'Elección guardada. Analítica desactivada.':'Choice saved. Analytics disabled.');
+   else if(result?.sharedOff===true)status.textContent=es?'No se pudo guardar la activación. La analítica está apagada y se verificó una negativa en el almacenamiento.':'Enabling could not be saved. Analytics is off and a refusal was verified in storage.';
+   else status.textContent=es?'Analítica apagada en esta página. No pudimos verificar el guardado: una autorización anterior o de este intento podría seguir disponible en otras pestañas o al recargar. Revisá el almacenamiento antes de continuar.':'Analytics is off on this page. Saving could not be verified: an old or attempted permission may remain usable in other tabs or after reload. Check browser storage before continuing.';
+  }));
+ })();
+</script>
+
+</BaseLayout>

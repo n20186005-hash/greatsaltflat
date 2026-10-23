@@ -10,7 +10,8 @@ export default defineConfig({
   output: "server",
   session: false,
   adapter: cloudflare({ imageService: "passthrough" }),
-  integrations: [sitemap()],
+  integrations: [sitemap({filter:page => !/\/(?:en\/)?(?:privacy|terms|cookies|404)\/?$/.test(new URL(page).pathname)})],
+  trailingSlash: "always",
   vite: {
     plugins: [tailwindcss()],
     server: { allowedHosts: true },

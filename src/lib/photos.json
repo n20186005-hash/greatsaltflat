@@ -1,0 +1,53 @@
+[
+  {
+    "file": "public/media/salinas-grandes-horizon-ccby-sa3.jpg",
+    "originalPage": "https://commons.wikimedia.org/wiki/File:Salinas_grandes.jpg",
+    "originalFile": "https://upload.wikimedia.org/wikipedia/commons/a/a1/Salinas_grandes.jpg?utm_source=commons.wikimedia.org&amp;utm_campaign=index&amp;utm_content=original",
+    "author": "Gonzalo Rivero",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "photoDate": "2008-12-28",
+    "originalSha256": "237b20c99fe82b4cd8bc7b44607776b99cb3ed76592503339deb60ef3204298a",
+    "originalByteIdentity": "exact",
+    "sourceWarnings": "No file warning/deletion nomination banner found in current source page",
+    "verified": "2026-10-23",
+    "sha256": "e2287a32728e56e5388f1b3e8880d6beebba95a2bcc9300afa3ec97dfe46df40",
+    "changes": "Resized to maximum 1600px, JPEG quality80; CSS display crops. Adaptation offered under same per-file licence.",
+    "titleEs": "Horizonte de Salinas Grandes",
+    "titleEn": "Salinas Grandes horizon"
+  },
+  {
+    "file": "public/media/ruta-52-cuesta-lipan-ccby-sa3.jpg",
+    "originalPage": "https://commons.wikimedia.org/wiki/File:Ruta_52-cuesta_lip%C3%A1n.jpg",
+    "originalFile": "https://upload.wikimedia.org/wikipedia/commons/2/21/Ruta_52-cuesta_lip%C3%A1n.jpg?utm_source=commons.wikimedia.org&amp;utm_campaign=index&amp;utm_content=original",
+    "author": "Gonzalo Rivero",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "photoDate": "2008-12-29",
+    "originalSha256": "1ad30c0eb44868777e60eb0abb384fa7be3a9244b5961500804bb0199ffca21a",
+    "originalByteIdentity": "exact",
+    "sourceWarnings": "No file warning/deletion nomination banner found in current source page",
+    "verified": "2026-10-23",
+    "sha256": "436143fab3dd04ae7e67a825cd9afee5bc455047bb14df433a6021af3d5026d1",
+    "changes": "Resized to maximum 1600px, JPEG quality80; CSS display crops. Adaptation offered under same per-file licence.",
+    "titleEs": "RN 52 por Cuesta de Lipán",
+    "titleEn": "RN 52 through Cuesta de Lipán"
+  },
+  {
+    "file": "public/media/salinas-grandes-pools-ccby2.jpg",
+    "originalPage": "https://commons.wikimedia.org/wiki/File:Salinas_grandes_%28Salta_y_Jujuy%29.jpg",
+    "originalFile": "https://upload.wikimedia.org/wikipedia/commons/4/47/Salinas_grandes_%28Salta_y_Jujuy%29.jpg?utm_source=commons.wikimedia.org&amp;utm_campaign=index&amp;utm_content=original",
+    "author": "Guerretto",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+    "photoDate": "2007-09-24",
+    "originalSha256": "f65da1230e5f7df36afcbb14cf84dbf99d90c97c8eea6926bf869d04f6e67010",
+    "originalByteIdentity": "exact",
+    "sourceWarnings": "No file warning/deletion nomination banner found in current source page",
+    "verified": "2026-10-23",
+    "sha256": "95260a5fb3e5990698ff0cb56cefc61f31b3cbda77c8a4b2abfc8c50621c6313",
+    "changes": "Resized to maximum 1600px, JPEG quality80; CSS display crops. Adaptation offered under same per-file licence.",
+    "titleEs": "Piletas de procesamiento de sal",
+    "titleEn": "Salt-processing pools"
+  }
+]

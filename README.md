@@ -1,22 +1,17 @@
-# Guía Salinas Grandes
+# Salinas Grandes visitor guide
 
-Sitio Astro preparado para el adaptador de Cloudflare Worker. El contenido principal se sirve en español rioplatense y existe una ruta íntegra en inglés bajo `/en/`. No utiliza base de datos, inicio de sesión ni CMS.
+Independent Spanish and English guide for https://greatsaltflat.com. Astro serves the homepages on demand, including server-side Open-Meteo weather; six legal/settings pages are prerendered.
 
-## Desarrollo y comprobación
+Use Node 24.12 or newer in the 24 series and pnpm 11.
 
-El proyecto se fija a Node `22.13.0` mediante `.node-version`, a pnpm `10.11.1` mediante `packageManager` y a dependencias exactas en `package.json` y `pnpm-lock.yaml`.
-
-```bash
-CI=1 corepack pnpm install --frozen-lockfile
+```sh
+pnpm install --frozen-lockfile
 pnpm check
 pnpm build
 ```
 
-## URL y despliegue
+The existing Cloudflare project is `greatsaltflat`. The adapter emits `dist/server/entry.mjs` and served assets under `dist/client`; generated local deployment configuration remains internal. The build normalises compiler metadata paths consistently. A build is not evidence of an activated production version.
 
-La única configuración de dominio está en `astro.config.mjs`, alimentada opcionalmente por `SITE_URL`. Si queda vacía, el proyecto construye sin canonical absoluto, URL de Open Graph ni sitemap. Al definir un dominio real, el sitemap se activa en la siguiente compilación. Para Workers, autentique Wrangler y ejecute `pnpm deploy`.
+Weather validates current and daily data, has a five-second request timeout and a ten-minute server cache, and shows an honest unavailable state on provider failure. No sample forecast is returned. The existing optional Google Analytics ID and storage format remain; the existing buttons apply immediate runtime rejection, verify persistence and report failures honestly. Maps and external fonts are independent services.
 
-## Créditos
-
-La fotografía documental se archiva desde una fuente CC BY 2.0. Su atribución y licencia figuran en `NOTICE.md`.
-
+See `research.md` for public fact sources and `NOTICE.md` for the three individually verified documentary photographs and their visible attribution.

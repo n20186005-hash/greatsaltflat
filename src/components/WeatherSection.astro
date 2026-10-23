@@ -2,6 +2,7 @@
 // Mapa de Sal style reminder: a weather instrument set in salt-paper fields.
 // Server Component: data is fetched and cached on the server (no client JS, no keys).
 import "../styles/weather.css";
+import {fetchWeather} from "../lib/weather";
 import type { Language } from "../lib/content";
 
 interface Props { lang: Language; }
@@ -16,13 +17,13 @@ const labelsEs = {
       wind: "Viento",
       gusts: "Ráfagas",
       humidity: "Humedad",
-      rain: "Prob. de lluvia",
+      rain: "Prob. lluvia del día",
       uv: "UV máx",
       forecast: "Próximos días",
       umbrella: "Llevá paraguas o impermeable: la lluvia es probable.",
       windAdvice: "Abrigate y sujetá lo liviano: el viento sopla fuerte.",
       sun: "Cuidá piel y ojos: radiación muy alta a esta altura.",
-      calm: "Condiciones estables para la visita; igual confirmá la ruta.",
+      calm: "El modelo no confirma que el recorrido esté habilitado.",
       caution: "El pronóstico orienta la decisión, pero no reemplaza el aviso de autoridades ni el estado de la RN 52.",
       source: "Datos meteorológicos",
       provider: "Open-Meteo",
@@ -38,13 +39,13 @@ const labelsEn = {
       wind: "Wind",
       gusts: "Gusts",
       humidity: "Humidity",
-      rain: "Rain chance",
+      rain: "Daily rain chance",
       uv: "UV max",
       forecast: "Next days",
       umbrella: "Bring an umbrella or rain layer: rain is likely.",
       windAdvice: "Dress warm and secure light items: the wind blows strong.",
       sun: "Protect skin and eyes: radiation is very high at this altitude.",
-      calm: "Stable conditions for a visit; still confirm the road.",
+      calm: "The model does not confirm that the route is authorised.",
       caution: "This forecast supports planning, but does not replace official notices or RN 52 road status.",
       source: "Weather data",
       provider: "Open-Meteo",
@@ -77,11 +78,11 @@ const adviceEs = {
   itemSunscreen: "Protector solar",
   drizzleActivity: "Hay llovizna y el suelo se pone resbaloso: cuidá los pasos",
   heavyRainActivity: "La lluvia es fuerte: la sal se moja y los bajos se llenan de agua; no entres al interior del salar",
-  rainRisk: "Lluvia intensa: evitá las zonas bajas y la superficie abierta del salar; la excursión guiada puede suspenderse",
+  rainRisk: "Lluvia intensa: evitá las zonas bajas y la superficie abierta del salar; consultá las indicaciones del personal",
   itemRaincoat: "Impermeable (con viento, el paraguas largo se da vuelta)",
   rainActivity: "La experiencia al aire libre pierde brillo; usá calzado que no resbale",
-  thunderRisk: "Tormenta eléctrica: no te quedes en la superficie abierta del salar ni en las partes altas; alejate de estructuras metálicas y del techo del vehículo",
-  thunderActivity: "Las actividades al aire libre y acuáticas probablemente se suspendan; mejor observar desde el vehículo o el parador",
+  thunderRisk: "Tormenta eléctrica: evitá la planicie abierta y los puntos altos; seguí los avisos locales y buscá refugio seguro",
+  thunderActivity: "Posponé el recorrido expuesto y buscá refugio seguro siguiendo las indicaciones locales",
   hotOutfit: "Hace calor: ropa liviana que transpire",
   hotActivity: "Evitá la hora central del día y acortá la exposición al sol",
   itemHeat: "Protector solar, bastante agua y algo para el calor",
@@ -93,14 +94,14 @@ const adviceEs = {
   itemLayer: "Ropa por capas, para sumar o quitar",
   windActivity: "Viento fuerte: en los miradores sujetá lo liviano; la gorra vuela",
   itemHat: "Una gorra que se sostenga",
-  windRisk: "Viento muy fuerte: alejate de las partes expuestas y de las bordas; la sal en suspensión irrita los ojos; la navegación o el teleférico pueden parar",
+  windRisk: "Viento muy fuerte: alejate de las partes expuestas y de las bordas; la sal en suspensión irrita los ojos; seguí los avisos locales antes de avanzar",
   itemNoUmbrella: "Mejor impermeable que paraguas largo (por el viento)",
   fogRisk: "Visibilidad baja: no es buen momento para ver de lejos la montaña ni el espejo de sal",
   fogActivity: "Las vistas pierden fuerza; considerá otro día o quedate en el parador",
   itemMask: "Barbijo",
-  clearActivity: "Día despejado: ideal para recorrer y fotografiar",
-  cloudActivity: "Luz suave: muy buena para estar al aire libre y sacar fotos",
-  calm: "Tiempo estable: podés planificar con normalidad, pero confirmá la ruta antes de salir",
+  clearActivity: "Cielo despejado: ajustá el recorrido al resto de las condiciones y al permiso local",
+  cloudActivity: "Cielo nublado: comprobá también temperatura, lluvia y viento",
+  calm: "Estas variables no generan consejos adicionales; verificá los avisos locales",
 };
 const adviceEn = {
   popOutfit: "High rain chance — a waterproof jacket or umbrella",
@@ -109,11 +110,11 @@ const adviceEn = {
   itemSunscreen: "Sunscreen",
   drizzleActivity: "Drizzle makes surfaces slippery — watch your step",
   heavyRainActivity: "Heavy rain: the salt gets wet and low spots flood; don't go inside the salt flat",
-  rainRisk: "Strong rain: avoid the low and open parts of the salar; the guided tour may pause",
+  rainRisk: "Strong rain: avoid the low and open parts of the salar; check directions from local staff",
   itemRaincoat: "Raincoat (long umbrellas flip in wind)",
   rainActivity: "The outdoor experience is weaker; wear non-slip footwear",
-  thunderRisk: "Thunderstorm: stay off the open salt surface and high ground; keep away from metal and vehicle roofs",
-  thunderActivity: "Open and water activities likely pause; view from the vehicle or parador instead",
+  thunderRisk: "Thunderstorm: avoid the open flat and high ground; follow local notices and seek safe shelter",
+  thunderActivity: "Postpone the exposed route and seek safe shelter following local directions",
   hotOutfit: "Warm weather — light, breathable clothing",
   hotActivity: "Avoid midday and shorten sun exposure",
   itemHeat: "Sunscreen, plenty of water, heat protection",
@@ -125,14 +126,14 @@ const adviceEn = {
   itemLayer: "Layered clothing",
   windActivity: "Windy: secure light items at viewpoints; hats fly off",
   itemHat: "A hat that stays on",
-  windRisk: "Very high wind: keep away from exposed edges; blowing salt irritates eyes; boats/cable cars may stop",
+  windRisk: "Very high wind: keep away from exposed edges; blowing salt irritates eyes; check local notices before going farther",
   itemNoUmbrella: "Prefer a raincoat over a long umbrella (wind)",
   fogRisk: "Low visibility — poor time for distant mountain or salt-mirror views",
   fogActivity: "Views weaken; consider another day or stay at the parador",
   itemMask: "Face mask",
-  clearActivity: "Clear day — great for walking and photos",
-  cloudActivity: "Soft light — good for long outdoor stays and photography",
-  calm: "Stable weather — plan as usual, but confirm the road before leaving",
+  clearActivity: "Clear sky — adjust the route to other conditions and local permission",
+  cloudActivity: "Cloudy sky — check temperature, rain and wind too",
+  calm: "These variables generate no additional advice; check local notices",
 };
 
 // Builds four advice groups from weather data. Only matching items are returned
@@ -164,10 +165,6 @@ function buildAdvice(
   return { outfit, activity, items, risk };
 }
 
-const lat = -23.608535;
-const lon = -65.867148;
-const API = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,apparent_temperature,relative_humidity_2m,precipitation,weather_code,wind_speed_10m,wind_gusts_10m&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max,uv_index_max&timezone=America%2FArgentina%2FJujuy&forecast_days=7&wind_speed_unit=kmh`;
-
 const WMO: Record<number, { label: string; cls: string }> = {
   0: { label: lang === "es" ? "Cielo despejado" : "Clear sky", cls: "clear" },
   1: { label: lang === "es" ? "Mayormente despejado" : "Mainly clear", cls: "clear" },
@@ -196,36 +193,16 @@ const condition = (code?: number) =>
     ? { label: lang === "es" ? "Sin datos" : "No data", cls: "cloud" }
     : (WMO[code] ?? { label: lang === "es" ? "Cielo variable" : "Variable sky", cls: "cloud" });
 
-// Module-level cache (short TTL). In Cloudflare Workers this also benefits from isolate reuse.
-const store = ((globalThis as any).__gsfWeatherCache ??= new Map<string, { data: any; ts: number }>());
-const KEY = "salinas-grandes";
-const TTL = 10 * 60 * 1000;
-let weather: any = null;
-const now = Date.now();
-const hit = store.get(KEY);
-if (hit && now - hit.ts < TTL) {
-  weather = hit.data;
-} else {
-  try {
-    const res = await fetch(API, { headers: { accept: "application/json" } });
-    if (res.ok) {
-      const data = await res.json();
-      weather = data;
-      store.set(KEY, { data, ts: now });
-    }
-  } catch {
-    weather = null;
-  }
-}
+const weather = await fetchWeather();
 
 const cur = weather?.current;
 const daily = weather?.daily;
 const condNow = condition(cur?.weather_code);
-const updated = cur?.time?.split("T")[1] ?? "";
-const days = daily
+const updated = cur ? new Intl.DateTimeFormat(lang === "es" ? "es-AR" : "en-GB", {timeZone:"America/Argentina/Jujuy",day:"2-digit",month:"short",hour:"2-digit",minute:"2-digit",hourCycle:"h23"}).format(new Date(cur.time + "-03:00")) + (lang === "es" ? " · hora de Jujuy" : " · Jujuy time") : "";
+const days: Array<{iso:string;label:string;code:number;max:number;min:number;pop:number;uv:number}> = daily
   ? daily.time.map((iso: string, i: number) => ({
       iso,
-      label: i === 0 ? labels.today : new Intl.DateTimeFormat(lang === "es" ? "es-AR" : "en-US", { weekday: "short", timeZone: "America/Argentina/Jujuy" }).format(new Date(iso + "T12:00")),
+      label: i === 0 ? labels.today : new Intl.DateTimeFormat(lang === "es" ? "es-AR" : "en-US", { weekday: "short", timeZone: "America/Argentina/Jujuy" }).format(new Date(iso + "T12:00-03:00")),
       code: daily.weather_code[i],
       max: Math.round(daily.temperature_2m_max[i]),
       min: Math.round(daily.temperature_2m_min[i]),
@@ -255,7 +232,7 @@ const advice = (cur && daily)
       <h2 id="weather-title">{labels.title}</h2>
       <p>{labels.intro}</p>
     </div>
-    <div class="weather-reference"><span>23.608535° S · 65.867148° O</span><b>3.450 m</b></div>
+    <div class="weather-reference"><span>23.6085346° S · 65.8645729° W</span><b>{lang === "es" ? "Referencia de modelo" : "Model reference"}</b></div>
   </div>
 
   {weather ? (
