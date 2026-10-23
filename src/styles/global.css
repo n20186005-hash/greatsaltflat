@@ -5,3 +5,12 @@
 .photo-credit-bar{margin:0;padding:.7rem max(1.2rem,calc((100vw - 1160px)/2));font-size:.75rem;line-height:1.5;background:var(--paper,#fff);position:relative}.photo-credits{grid-column:1/-1;width:100%;font-size:.8rem;overflow-wrap:anywhere}.photo-credits h2{font-size:1.3rem}.photo-credits p{max-width:none}.place-clarification h2{font-size:clamp(1.8rem,4vw,3.3rem)}section[id]{scroll-margin-top:7rem}
 
 .skip-link{position:absolute;top:-5rem;left:1rem;z-index:100;background:#fff;padding:1rem}.skip-link:focus{top:1rem}
+
+.mobile-navigation { display: none; }
+@media (max-width: 920px) {
+  .site-header { height: auto; min-height: 72px; padding-top: .75rem; padding-bottom: .75rem; row-gap: .4rem; }
+  .mobile-navigation { display: block; grid-column: 1 / -1; width: 100%; }
+  .mobile-navigation summary { cursor: pointer; padding: .5rem 0; font-weight: 700; color: var(--blue-deep); }
+  .site-header .mobile-navigation nav { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .3rem .8rem; padding: .4rem 0; }
+  .mobile-navigation nav a { padding: .6rem 0; overflow-wrap: anywhere; }
+}
