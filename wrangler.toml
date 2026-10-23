@@ -1,6 +1,12 @@
 name = "greatsaltflat"
+main = "src/worker.js"
 compatibility_date = "2026-08-27"
 upload_source_maps = false
 
 [vars]
 SITE_URL = "https://greatsaltflat.com"
+
+# The protocol guard must run before prerendered pages are served by Assets.
+[assets]
+binding = "ASSETS"
+run_worker_first = true
