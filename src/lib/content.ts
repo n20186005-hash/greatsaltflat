@@ -38,8 +38,8 @@ export const attractionSchema = {
 export const copy = {
   "es": {
     "locale": "es_AR",
-    "title": "Salinas Grandes, Jujuy: guía, acceso y cómo llegar",
-    "description": "Planificá Salinas Grandes por RN 52: punto de referencia en Jujuy, guía local, costos a confirmar, horarios publicados y preparación para la altura.",
+    "title": "Salinas Grandes Jujuy: cómo llegar, guías y visitas",
+    "description": "Planificá tu visita a Salinas Grandes en Jujuy: guías locales, cómo llegar por RN 52, clima, ingreso y qué ver cerca de Purmamarca.",
     "nav": [
       [
         "El salar",
@@ -229,8 +229,8 @@ export const copy = {
   },
   "en": {
     "locale": "en_US",
-    "title": "Salinas Grandes, Argentina: Salt Flat Visitor Guide",
-    "description": "Plan a Salinas Grandes visit via RN 52: the Jujuy visitor point, local guides, fees to confirm, published hours and high-altitude preparation.",
+    "title": "Salinas Grandes Jujuy, Argentina | Salt Flats Visitor Guide",
+    "description": "Plan your visit to Salinas Grandes in Jujuy. Find local guide information, Route 52 directions, weather, entrance details and things to see near Purmamarca.",
     "nav": [
       [
         "The salt flat",
@@ -804,7 +804,7 @@ export const legalCopy = {
 } as const;
 export const placeFacts = {
   "ratingValue": "4.8",
-  "reviewCount": "9967",
-  "date": "23/10/2026",
+  "reviewCount": "9983",
+  "date": "01/11/2026",
   "address": "RN 52 km 60, Parador La Curva, Jujuy, Argentina"
 } as const;

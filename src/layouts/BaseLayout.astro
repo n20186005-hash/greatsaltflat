@@ -3,13 +3,16 @@
 import "../styles/global.css";
 import photos from "../lib/photos.json";
 import { copy, imageUrls, SITE_NAME, type Language } from "../lib/content";
-interface Props { lang: Language; title: string; description: string; canonicalPath: string; socialTitle?: string; socialDescription?: string; keywords?: string; noindex?: boolean; }
+interface Props { lang: Language; title: string; description: string; canonicalPath: string; socialTitle?: string; socialDescription?: string; keywords?: string; noindex?: boolean; langPaths?: { es: string; en: string }; }
 const { lang, title, description, canonicalPath, socialTitle = title, socialDescription = description, keywords, noindex = false } = Astro.props;
 const t = copy[lang];
 const siteName = SITE_NAME[lang];
 const canonical = Astro.site ? new URL(canonicalPath, Astro.site).href : undefined;
-const englishPath = lang === "en" ? canonicalPath : canonicalPath === "/" ? "/en/" : `/en${canonicalPath}`;
-const spanishPath = lang === "es" ? canonicalPath : canonicalPath.replace(/^\/en/, "") || "/";
+const langPaths = Astro.props.langPaths;
+const esPath = langPaths?.es ?? (lang === "es" ? canonicalPath : canonicalPath.replace(/^\/en/, "") || "/");
+const enPath = langPaths?.en ?? (lang === "en" ? canonicalPath : canonicalPath === "/" ? "/en/" : `/en${canonicalPath}`);
+const englishPath = enPath;
+const spanishPath = esPath;
 const englishUrl = Astro.site ? new URL(englishPath, Astro.site).href : undefined;
 const spanishUrl = Astro.site ? new URL(spanishPath, Astro.site).href : undefined;
 const socialImage = Astro.site ? new URL(imageUrls.hero, Astro.site).href : undefined;

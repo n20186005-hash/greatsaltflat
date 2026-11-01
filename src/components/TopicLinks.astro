@@ -1,0 +1,41 @@
+---
+import { type Language, type TopicGroup, TOPIC_GROUP_LABELS, topicsByGroup } from "../lib/topics";
+interface Props {
+  lang: Language;
+}
+const { lang } = Astro.props;
+const es = lang === "es";
+const groups: TopicGroup[] = ["visita", "transporte"];
+const data = groups.map((g) => ({
+  id: g,
+  label: TOPIC_GROUP_LABELS[g][lang],
+  topics: topicsByGroup(g).map((t) => ({
+    href: es ? `/${t.group}/${t.slug}/` : `/en/${t.group}/${t.slugEn}/`,
+    title: es ? t.es.h1 : t.en.h1,
+  })),
+}));
+---
+<section id="guias-tematicas" class="topic-cluster" aria-labelledby="guias-tematicas-title">
+  <div class="container">
+    <h2 id="guias-tematicas-title">{es ? "Guías temáticas" : "Topic guides"}</h2>
+    <p class="cluster-intro">
+      {es
+        ? "Decisiones de visita para resolver antes de salir: acceso, guía local, altura, clima y cómo llegar."
+        : "Visit decisions to settle before you leave: access, local guide, altitude, weather and how to get there."}
+    </p>
+    {data.map((group) => (
+      <div class="cluster-group">
+        <h3>{group.label}</h3>
+        <ul class="cluster-grid">
+          {group.topics.map((t) => (
+            <li>
+              <a href={t.href} class="cluster-card">
+                <span>{t.title}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    ))}
+  </div>
+</section>

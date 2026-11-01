@@ -1,0 +1,13 @@
+---
+import { TOPICS, type Topic } from "../../lib/topics";
+import TopicPage from "../../components/TopicPage.astro";
+
+export const getStaticPaths = () =>
+  TOPICS.filter((t) => t.group === "transporte").map((t) => ({
+    params: { topic: t.slug },
+    props: { topic: t },
+  }));
+
+const { topic } = Astro.props as { topic: Topic };
+---
+<TopicPage lang="es" topic={topic} />

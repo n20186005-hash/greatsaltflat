@@ -1,0 +1,133 @@
+---
+import { type Language, type Topic, TOPIC_GROUP_LABELS, getTopic, topicPath } from "../lib/topics";
+import { attractionSchema } from "../lib/content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const { lang, topic } = Astro.props as { lang: Language; topic: Topic };
+const es = lang === "es";
+const c = es ? topic.es : topic.en;
+const canonicalPath = topicPath(topic, lang);
+const langPaths = {
+  es: `/${topic.group}/${topic.slug}/`,
+  en: `/en/${topic.group}/${topic.slugEn}/`,
+};
+const site = Astro.site;
+const canonical = site ? new URL(canonicalPath, site).href : undefined;
+const attractionId = attractionSchema["@id"] as string;
+const groupLabel = TOPIC_GROUP_LABELS[topic.group][lang];
+const homePath = es ? "/" : "/en/";
+const groupPath = es ? `/${topic.group}/` : `/en/${topic.group}/`;
+
+const webPageLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": canonical ? `${canonical}#webpage` : undefined,
+  url: canonical,
+  name: c.metaTitle,
+  description: c.metaDescription,
+  inLanguage: es ? "es-AR" : "en",
+  isPartOf: { "@type": "WebSite", "@id": site ? `${site.href}#website` : "#website" },
+  about: { "@type": ["TouristAttraction", "Place"], "@id": attractionId },
+  breadcrumb: { "@id": canonical ? `${canonical}#breadcrumb` : undefined },
+};
+const breadcrumbLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "@id": canonical ? `${canonical}#breadcrumb` : undefined,
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: es ? "Inicio" : "Home",
+      item: site ? new URL(homePath, site).href : homePath,
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: groupLabel,
+      item: site ? new URL(groupPath, site).href : groupPath,
+    },
+    {
+      "@type": "ListItem",
+      position: 3,
+      name: c.h1,
+      item: canonical,
+    },
+  ],
+};
+const faqLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: c.faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+---
+<BaseLayout lang={lang} title={c.metaTitle} description={c.metaDescription} canonicalPath={canonicalPath} langPaths={langPaths}>
+  <script type="application/ld+json" set:html={JSON.stringify(webPageLd)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbLd)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqLd)} />
+
+  <main id="main-content" class="topic-page">
+    <nav class="breadcrumb" aria-label={es ? "Ruta de navegación" : "Breadcrumb"}>
+      <a href={homePath}>{es ? "Inicio" : "Home"}</a>
+      <span aria-hidden="true">/</span>
+      <a href={groupPath}>{groupLabel}</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">{c.h1}</span>
+    </nav>
+
+    <header class="topic-hero">
+      <p class="topic-kicker">{groupLabel}</p>
+      <h1>{c.h1}</h1>
+      <p class="topic-lead">{c.lead}</p>
+      <p class="topic-updated">{es ? "Última verificación" : "Last verified"}: {c.updated}</p>
+    </header>
+
+    <div class="topic-body">
+      {c.sections.map((sec) => (
+        <section class="topic-section">
+          <h2>{sec.heading}</h2>
+          {sec.paragraphs?.map((p) => <p>{p}</p>)}
+          {sec.bullets && <ul>{sec.bullets.map((b) => <li>{b}</li>)}</ul>}
+          {sec.callout && <p class="callout">{sec.callout}</p>}
+        </section>
+      ))}
+
+      {c.faqs.length > 0 && (
+        <section class="topic-faq">
+          <h2>{es ? "Preguntas frecuentes" : "Frequently asked questions"}</h2>
+          {c.faqs.map((f) => (
+            <details class="faq-item">
+              <summary>{f.q}</summary>
+              <div class="faq-answer"><p>{f.a}</p></div>
+            </details>
+          ))}
+        </section>
+      )}
+
+      {topic.related.length > 0 && (
+        <section class="topic-related">
+          <h2>{es ? "Temas relacionados" : "Related topics"}</h2>
+          <ul class="related-grid">
+            {topic.related.map((key) => {
+              const rt = getTopic(key);
+              if (!rt) return null;
+              const rc = es ? rt.es : rt.en;
+              return (
+                <li>
+                  <a href={topicPath(rt, lang)}>
+                    <span class="related-kicker">{TOPIC_GROUP_LABELS[rt.group][lang]}</span>
+                    <span class="related-title">{rc.h1}</span>
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+        </section>
+      )}
+    </div>
+  </main>
+</BaseLayout>

@@ -14,3 +14,56 @@
   .site-header .mobile-navigation nav { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .3rem .8rem; padding: .4rem 0; }
   .mobile-navigation nav a { padding: .6rem 0; overflow-wrap: anywhere; }
 }
+
+/* Data-driven topic pages (Salinas Grandes long-tail) */
+.topic-page{max-width:1180px;margin:0 auto;padding:0 7vw 6rem}
+.breadcrumb{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;font-size:.82rem;color:var(--muted);padding:1.6rem 0 .4rem}
+.breadcrumb a{color:var(--blue);text-decoration:none;font-weight:600}
+.breadcrumb a:hover{text-decoration:underline}
+.breadcrumb span[aria-hidden]{color:var(--line)}
+.topic-hero{padding:1.5rem 0 2.5rem;border-bottom:2px solid var(--terracotta);margin-bottom:2.5rem}
+.topic-kicker{color:var(--terracotta);text-transform:uppercase;letter-spacing:.12em;font-size:.74rem;font-weight:700;margin:0 0 .6rem}
+.topic-hero h1{font-size:clamp(2.6rem,6vw,5.2rem);margin:.2rem 0 1rem}
+.topic-lead{font-size:1.2rem;max-width:760px;color:var(--ink);line-height:1.6}
+.topic-updated{margin-top:1rem;font-size:.78rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+.topic-body{max-width:820px}
+.topic-section{margin:2.2rem 0}
+.topic-section h2{font-size:clamp(1.7rem,3.4vw,2.6rem);margin-bottom:.8rem}
+.topic-section p{margin:.7rem 0;font-size:1.05rem;line-height:1.65;color:var(--ink)}
+.topic-section ul{margin:.8rem 0;padding-left:1.2rem}
+.topic-section li{margin:.4rem 0;line-height:1.55}
+.callout{display:block;margin:1.3rem 0;padding:1.1rem 1.3rem;border-left:3px solid var(--sun);background:#dcecf1;color:var(--blue-deep);font-size:.98rem;font-weight:500}
+.topic-faq{margin-top:3rem;border-top:1px solid var(--line);padding-top:1.5rem}
+.topic-faq h2{font-size:clamp(1.7rem,3.4vw,2.6rem);margin-bottom:1rem}
+.faq-item{border-bottom:1px solid var(--line);padding:1.1rem 0}
+.faq-item summary{list-style:none;cursor:pointer;font-family:var(--serif);font-size:1.2rem;font-weight:600;color:var(--blue-deep);display:flex;justify-content:space-between;gap:1rem}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary:after{content:"+";color:var(--terracotta);font-size:1.4rem;line-height:1}
+.faq-item[open] summary:after{content:"–"}
+.faq-answer{padding-top:.6rem;color:var(--muted);font-size:1rem;line-height:1.6}
+.topic-related{margin-top:3rem;border-top:2px solid var(--terracotta);padding-top:1.6rem}
+.topic-related h2{font-size:clamp(1.5rem,3vw,2.2rem);margin-bottom:1.2rem}
+.related-grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
+.related-grid a{display:block;padding:1.1rem 1.2rem;border:1px solid var(--line);text-decoration:none;color:var(--ink);background:var(--paper);transition:border-color .18s ease,transform .16s ease}
+.related-grid a:hover{border-color:var(--blue);transform:translateY(-2px)}
+.related-kicker{display:block;color:var(--terracotta);text-transform:uppercase;letter-spacing:.1em;font-size:.66rem;font-weight:700;margin-bottom:.35rem}
+.related-title{display:block;font-family:var(--serif);font-size:1.18rem;font-weight:600;color:var(--blue-deep)}
+
+/* Homepage topic cluster */
+.topic-cluster{background:var(--paper);padding:clamp(4rem,8vw,7rem) 0}
+.topic-cluster .container{max-width:1180px;margin:0 auto;padding:0 7vw}
+.topic-cluster h2{font-size:clamp(2rem,4vw,3.4rem);margin:0 0 .6rem}
+.cluster-intro{max-width:680px;color:var(--muted);font-size:1.05rem;margin:0 0 2.5rem}
+.cluster-group{margin-bottom:2.5rem}
+.cluster-group h3{display:inline-block;color:var(--blue-deep);font-family:var(--serif);font-size:1.25rem;margin:0 0 1rem;padding-bottom:.3rem;border-bottom:2px solid var(--terracotta)}
+.cluster-grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.cluster-card{display:grid;place-items:center;text-align:center;min-height:96px;padding:1.2rem;background:var(--salt);border:1px solid var(--line);text-decoration:none;color:var(--blue-deep);font-family:var(--serif);font-size:1.16rem;font-weight:600;transition:background .18s ease,color .18s ease,border-color .18s ease}
+.cluster-card:hover{background:var(--blue);color:white;border-color:var(--blue)}
+
+@media(max-width:920px){
+  .related-grid,.cluster-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:600px){
+  .related-grid,.cluster-grid{grid-template-columns:1fr}
+  .topic-page{padding:0 7vw 4rem}
+}
