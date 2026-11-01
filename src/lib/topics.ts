@@ -3836,6 +3836,1510 @@ export const TOPICS: Topic[] = [
       ],
     },
   },
+  {
+  "key": "drones-y-fotografia",
+  "group": "visita",
+  "slug": "drones-y-fotografia",
+  "slugEn": "drones-and-photography",
+  "related": [
+    "fotografia",
+    "efecto-espejo",
+    "seguridad",
+    "que-llevar",
+    "la-sal"
+  ],
+  "es": {
+    "metaTitle": "Drones y fotografía en Salinas Grandes: qué saber",
+    "metaDescription": "Si llevás un dron al salar, revisá la normativa de ANAC y preguntá a la guía local. La superficie blanca y la luz de la Puna exigen precaución.",
+    "h1": "Drones y fotografía",
+    "lead": "El salar es un escenario fotográfico brutal, pero volar un dron y fotografiar la Puna tiene reglas. La guía local y la comunidad marcan qué se puede hacer en el recorrido habilitado.",
+    "updated": "01/11/2026",
+    "sections": [
+      {
+        "heading": "Drones: antes de volar",
+        "paragraphs": [
+          "En Argentina, los drones se regulan por ANAC según su peso y uso; los de uso recreativo tienen límites de altura y requisitos de registro.",
+          "El salar es un área de comunidad y paisaje protegido: no es un espacio libre para sobrevolar lo que se quiera."
+        ],
+        "bullets": [
+          "Consultá a la guía local antes de sacar el dron.",
+          "Evitá volar sobre personas, el parador y zonas de trabajo.",
+          "Respetá las indicaciones de la autoridad y de la comunidad."
+        ],
+        "callout": "No asumás que podés volar: preguntalo a la guía en el Parador La Curva."
+      },
+      {
+        "heading": "Fotografía en la Puna",
+        "paragraphs": [
+          "La superficie blanca devuelve mucha luz; un filtro polarizador ayuda a controlar los reflejos.",
+          "El clima de altura cambia rápido: la luz dura por la mañana y se suaviza al atardecer."
+        ],
+        "bullets": [
+          "Llevá protección para el equipo contra la sal y el viento.",
+          "Cargá baterías extra: el frío de altura las gasta más.",
+          "El efecto espejo aparece tras la lluvia, no siempre."
+        ]
+      },
+      {
+        "heading": "Cuidado del equipo",
+        "paragraphs": [
+          "La sal cristalizada es abrasiva y se mete en todo.",
+          "Limpiá trípodes y bolsos al volver; cerrad bien los estuches."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "¿Se puede volar dron en Salinas Grandes?",
+        "a": "No lo des por hecho: preguntalo a la guía local y cumplí la normativa de ANAC y las indicaciones de la comunidad en el recorrido habilitado."
+      },
+      {
+        "q": "¿Qué permiso pide ANAC?",
+        "a": "Depende del peso y uso del dron; los recreativos tienen límites y registro. Confirmalo en la web de ANAC antes del viaje."
+      },
+      {
+        "q": "¿Cuándo sale mejor la foto?",
+        "a": "Luz pareja a la mañana; reflejos tras la lluvia. La superficie blanca exige cuidar la exposición."
+      },
+      {
+        "q": "¿La sal daña la cámara?",
+        "a": "Puede: es abrasiva. Protegé el equipo y limpiá trípodes y bolsos al volver."
+      }
+    ]
+  },
+  "en": {
+    "metaTitle": "Drones and photography at Salinas Grandes: what to know",
+    "metaDescription": "If you bring a drone to the salt flat, check ANAC rules and ask the local guide. The white surface and Puna light demand care.",
+    "h1": "Drones and photography",
+    "lead": "The salt flat is a stunning photo setting, but flying a drone and shooting the Puna follow rules. The local guide and community decide what is allowed on the permitted route.",
+    "updated": "01/11/2026",
+    "sections": [
+      {
+        "heading": "Drones: before you fly",
+        "paragraphs": [
+          "In Argentina, drones are regulated by ANAC by weight and use; recreational ones have altitude limits and registration requirements.",
+          "The salt flat is a community area and protected landscape: it is not open space to fly whatever you like."
+        ],
+        "bullets": [
+          "Ask the local guide before taking the drone out.",
+          "Avoid flying over people, the parador and work areas.",
+          "Respect the authority's and community's instructions."
+        ],
+        "callout": "Don't assume you can fly: ask the guide at Parador La Curva first."
+      },
+      {
+        "heading": "Photography in the Puna",
+        "paragraphs": [
+          "The white surface bounces a lot of light; a polarising filter helps control reflections.",
+          "High-altitude weather changes fast: hard light in the morning, softer at dusk."
+        ],
+        "bullets": [
+          "Protect your gear from salt and wind.",
+          "Carry spare batteries: the cold at altitude drains them faster.",
+          "The mirror effect appears after rain, not always."
+        ]
+      },
+      {
+        "heading": "Gear care",
+        "paragraphs": [
+          "Crystallised salt is abrasive and gets into everything.",
+          "Clean tripods and bags after; keep cases closed."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Can I fly a drone at Salinas Grandes?",
+        "a": "Don't take it for granted: ask the local guide and follow ANAC rules and the community's instructions on the permitted route."
+      },
+      {
+        "q": "What permit does ANAC require?",
+        "a": "It depends on the drone's weight and use; recreational ones have limits and registration. Check ANAC's site before the trip."
+      },
+      {
+        "q": "When is the best shot?",
+        "a": "Even light in the morning; reflections after rain. The white surface demands exposure care."
+      },
+      {
+        "q": "Does salt damage the camera?",
+        "a": "It can: it is abrasive. Protect gear and clean tripods and bags afterwards."
+      }
+    ]
+  }
+},
+  {
+  "key": "accesibilidad",
+  "group": "visita",
+  "slug": "accesibilidad",
+  "slugEn": "accessibility",
+  "related": [
+    "con-ninos",
+    "seguridad",
+    "cuesta-de-lipan",
+    "mal-de-altura",
+    "que-llevar"
+  ],
+  "es": {
+    "metaTitle": "Accesibilidad en Salinas Grandes: silla de ruedas y personas mayores",
+    "metaDescription": "La superficie del salar es irregular y la altura es alta. La visita guiada puede adaptarse; confirmalo con el proveedor antes de salir.",
+    "h1": "Accesibilidad",
+    "lead": "El salar no es un paseo llano: la superficie es irregular, la altura supera los 3.000 m y las instalaciones son básicas. La visita guiada puede adaptarse, pero conviene confirmarlo antes.",
+    "updated": "01/11/2026",
+    "sections": [
+      {
+        "heading": "La superficie",
+        "paragraphs": [
+          "El salar es una costra de sal desigual, no un piso; caminar sobre ella requiere calzado firme.",
+          "Las sillas de ruedas y andadores enfrentan dificultad en la superficie misma."
+        ],
+        "bullets": [
+          "Consultá con la guía qué tramo es transitable.",
+          "El parador tiene la base de apoyo, pero es rústico."
+        ],
+        "callout": "No es una visita apta para cualquier movilidad: evaluá con el proveedor."
+      },
+      {
+        "heading": "La altura",
+        "paragraphs": [
+          "Se llega a más de 3.000 m; la falta de aire afecta a todos, más a mayores y con condición cardiorrespiratoria.",
+          "La Cuesta de Lipán sube rápido: id con calma."
+        ],
+        "bullets": [
+          "Hidratate y no te apures.",
+          "Consultá al médico si tenés dudas por altura."
+        ]
+      },
+      {
+        "heading": "Cómo pedir adaptación",
+        "paragraphs": [
+          "Muchos proveedores pueden acercar el vehículo al mirador y acortar caminata.",
+          "Preguntá al coordinar la salida qué nivel de apoyo ofrecen."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "¿Se puede ir en silla de ruedas?",
+        "a": "El mirador junto al parador suele ser el punto accesible; la superficie del salar en sí es irregular. Confirmalo con la guía."
+      },
+      {
+        "q": "¿Es apta para personas mayores?",
+        "a": "Sí si se toma con calma y se consulta la altura; la guía puede acortar la caminata."
+      },
+      {
+        "q": "¿Hay baños accesibles?",
+        "a": "Las instalaciones son básicas en el parador; no des por hecho un baño adaptado, preguntalo."
+      },
+      {
+        "q": "¿La altura es un problema?",
+        "a": "Puede serlo: estás sobre 3.000 m. Andá lento, hidratate y consultá si tenés condición de riesgo."
+      }
+    ]
+  },
+  "en": {
+    "metaTitle": "Accessibility at Salinas Grandes: wheelchairs and older visitors",
+    "metaDescription": "The salt surface is uneven and the altitude is high. The guided visit can be adapted; confirm with the provider before you go.",
+    "h1": "Accessibility",
+    "lead": "The salt flat is not a flat stroll: the surface is uneven, the altitude exceeds 3,000 m and facilities are basic. The guided visit can be adapted, but it is worth confirming first.",
+    "updated": "01/11/2026",
+    "sections": [
+      {
+        "heading": "The surface",
+        "paragraphs": [
+          "The salt flat is an uneven salt crust, not a floor; walking on it needs firm footwear.",
+          "Wheelchairs and walkers face difficulty on the surface itself."
+        ],
+        "bullets": [
+          "Ask the guide which stretch is passable.",
+          "The parador is the support base, but it is rustic."
+        ],
+        "callout": "Not a visit for any mobility level: assess it with the provider."
+      },
+      {
+        "heading": "The altitude",
+        "paragraphs": [
+          "You reach over 3,000 m; thin air affects everyone, more so older visitors and those with heart or respiratory conditions.",
+          "The Cuesta de Lipán climbs fast: take it easy."
+        ],
+        "bullets": [
+          "Hydrate and don't rush.",
+          "Ask your doctor if you have altitude concerns."
+        ]
+      },
+      {
+        "heading": "How to request adaptation",
+        "paragraphs": [
+          "Many providers can drive closer to the viewpoint and shorten the walk.",
+          "Ask when arranging the outing what level of support they offer."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Can I go in a wheelchair?",
+        "a": "The viewpoint by the parador is usually the accessible point; the salt surface itself is uneven. Confirm with the guide."
+      },
+      {
+        "q": "Is it suitable for older visitors?",
+        "a": "Yes if taken calmly and the altitude is considered; the guide can shorten the walk."
+      },
+      {
+        "q": "Are there accessible toilets?",
+        "a": "Facilities at the parador are basic; don't assume an adapted toilet, ask about it."
+      },
+      {
+        "q": "Is altitude a problem?",
+        "a": "It can be: you are above 3,000 m. Go slow, hydrate and consult if you have a risk condition."
+      }
+    ]
+  }
+},
+  {
+  "key": "acampar",
+  "group": "visita",
+  "slug": "acampar",
+  "slugEn": "camping",
+  "related": [
+    "donde-dormir",
+    "seguridad",
+    "que-llevar",
+    "clima",
+    "mascotas"
+  ],
+  "es": {
+    "metaTitle": "Acampar cerca de Salinas Grandes: dónde y cómo",
+    "metaDescription": "No hay camping formal sobre el salar. La base para dormir son los pueblos de la Quebrada y la Puna; el salar se visita en el día.",
+    "h1": "Acampar",
+    "lead": "No existe un camping formal sobre el salar: es un área de comunidad y la visita se hace en el día con guía. Para pernoctar, la base son Purmamarca, Tilcara, Humahuaca y la Puna cercana.",
+    "updated": "01/11/2026",
+    "sections": [
+      {
+        "heading": "Sobre el salar no se acampa",
+        "paragraphs": [
+          "El salar es un espacio de comunidad y recorrido habilitado; no es un camping libre.",
+          "La superficie y el clima de altura lo hacen poco práctico para pernoctar ahí."
+        ],
+        "callout": "Planificá el salar como día; dormí en los pueblos."
+      },
+      {
+        "heading": "Dónde dormir",
+        "paragraphs": [
+          "Purmamarca y Tilcara tienen alojamiento y servicios; Humahuaca está más al norte.",
+          "La Puna cercana ofrece opciones rústicas, pero confirmá disponibilidad."
+        ],
+        "bullets": [
+          "Reservá con anticipación en temporada.",
+          "El frío de noche en altura es fuerte todo el año."
+        ]
+      },
+      {
+        "heading": "Si llevás carpa",
+        "paragraphs": [
+          "Si acampás en los pueblos o zonas habilitadas, llevá equipo de frío real.",
+          "La sal y el viento castigan las lonas; aseguralas bien."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "¿Se puede acampar en el salar?",
+        "a": "No es un camping libre: es área de comunidad y recorrido guiado. Mejor pernoctá en los pueblos y visitá el salar de día."
+      },
+      {
+        "q": "¿Dónde acampar cerca?",
+        "a": "En los pueblos de la Quebrada y la Puna hay zonas habilitadas; confirmá con cada lugar, no en el salar."
+      },
+      {
+        "q": "¿Hace mucho frío de noche?",
+        "a": "Sí, en altura el frío nocturno es fuerte todo el año; equipo de frío real."
+      },
+      {
+        "q": "¿Hay servicios en el salar?",
+        "a": "Básicos en el parador; no esperes servicios de camping. Abastecete en los pueblos."
+      }
+    ]
+  },
+  "en": {
+    "metaTitle": "Camping near Salinas Grandes: where and how",
+    "metaDescription": "There is no formal camping on the salt flat. The base to sleep is the Quebrada and Puna towns; the salt flat is visited during the day.",
+    "h1": "Camping",
+    "lead": "There is no formal camping on the salt flat: it is a community area and the visit is done by day with a guide. To stay overnight, the base is Purmamarca, Tilcara, Humahuaca and the nearby Puna.",
+    "updated": "01/11/2026",
+    "sections": [
+      {
+        "heading": "You don't camp on the salt flat",
+        "paragraphs": [
+          "The salt flat is a community space and a permitted route; it is not free camping.",
+          "The surface and high-altitude weather make overnighting there impractical."
+        ],
+        "callout": "Plan the salt flat as a day trip; sleep in the towns."
+      },
+      {
+        "heading": "Where to sleep",
+        "paragraphs": [
+          "Purmamarca and Tilcara have lodging and services; Humahuaca is further north.",
+          "The nearby Puna offers rustic options, but confirm availability."
+        ],
+        "bullets": [
+          "Book ahead in season.",
+          "Night cold at altitude is strong all year."
+        ]
+      },
+      {
+        "heading": "If you bring a tent",
+        "paragraphs": [
+          "If you camp in towns or enabled areas, bring real cold-weather gear.",
+          "Salt and wind punish the canvas; secure it well."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Can I camp on the salt flat?",
+        "a": "It is not free camping: it is a community area and a guided route. Better stay in the towns and visit the salt flat by day."
+      },
+      {
+        "q": "Where to camp nearby?",
+        "a": "The Quebrada and Puna towns have enabled areas; confirm with each place, not on the salt flat."
+      },
+      {
+        "q": "Is it very cold at night?",
+        "a": "Yes, at altitude night cold is strong all year; real cold-weather gear."
+      },
+      {
+        "q": "Are there services on the salt flat?",
+        "a": "Basic at the parador; don't expect camping services. Stock up in the towns."
+      }
+    ]
+  }
+},
+  {
+  "key": "mejores-miradores",
+  "group": "visita",
+  "slug": "mejores-miradores",
+  "slugEn": "best-viewpoints",
+  "related": [
+    "fotografia",
+    "efecto-espejo",
+    "que-ver-cerca",
+    "mapa-y-accesos",
+    "mejor-hora-dia"
+  ],
+  "es": {
+    "metaTitle": "Mejores miradores de Salinas Grandes y la Cuesta de Lipán",
+    "metaDescription": "El mirador del salar queda junto al Parador La Curva; la Cuesta de Lipán da otra vista de la Puna. La guía marca dónde detenerse.",
+    "h1": "Mejores miradores",
+    "lead": "El punto clásico es el mirador del salar, junto al Parador La Curva, donde empieza el recorrido con guía. La Cuesta de Lipán, de bajada, abre otra panorámica de la Puna.",
+    "updated": "01/11/2026",
+    "sections": [
+      {
+        "heading": "Mirador del salar",
+        "paragraphs": [
+          "Está junto al parador, al inicio del recorrido habilitado con la guía local.",
+          "Desde ahí se ve la costra blanca y, tras la lluvia, el espejo."
+        ],
+        "bullets": [
+          "Es el lugar donde la guía habilita el acceso.",
+          "No camines fuera de lo indicado."
+        ]
+      },
+      {
+        "heading": "Cuesta de Lipán",
+        "paragraphs": [
+          "La bajada desde la Puna a la salina cambia el paisaje de golpe.",
+          "Hay curvas con vista amplia; la guía suele indicar dónde detenerse."
+        ],
+        "callout": "La altura de la cuesta también es buen punto de foto, con calma."
+      },
+      {
+        "heading": "Salinas Chicas",
+        "paragraphs": [
+          "Cerca hay salinas menores que dan otra escala del paisaje.",
+          "Preguntá a la guía si el recorrido las incluye."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "¿Dónde está el mejor mirador?",
+        "a": "El mirador del salar, junto al Parador La Curva, donde arranca el recorrido con guía; la Cuesta de Lipán suma otra vista."
+      },
+      {
+        "q": "¿Se puede bajar al salar?",
+        "a": "Sí, en el tramo que la guía habilita y acompaña; no vayas por tu cuenta a la superficie."
+      },
+      {
+        "q": "¿Cuándo conviene parar en la cuesta?",
+        "a": "En las curvas amplias que la guía indique; la altura y el viento piden calma."
+      },
+      {
+        "q": "¿Qué son Salinas Chicas?",
+        "a": "Salinas menores cercanas que dan otra escala del paisaje; consultá si el recorrido las incluye."
+      }
+    ]
+  },
+  "en": {
+    "metaTitle": "Best viewpoints of Salinas Grandes and the Cuesta de Lipán",
+    "metaDescription": "The salt flat viewpoint is by Parador La Curva; the Cuesta de Lipán opens another Puna view. The guide marks where to stop.",
+    "h1": "Best viewpoints",
+    "lead": "The classic point is the salt flat viewpoint by Parador La Curva, where the guided route begins. The Cuesta de Lipán, descending, opens another panorama of the Puna.",
+    "updated": "01/11/2026",
+    "sections": [
+      {
+        "heading": "Salt flat viewpoint",
+        "paragraphs": [
+          "It is by the parador, at the start of the permitted route with the local guide.",
+          "From there you see the white crust and, after rain, the mirror."
+        ],
+        "bullets": [
+          "It is where the guide enables access.",
+          "Don't walk outside what is indicated."
+        ]
+      },
+      {
+        "heading": "Cuesta de Lipán",
+        "paragraphs": [
+          "The descent from the Puna to the salt flat changes the landscape abruptly.",
+          "There are wide curves with broad views; the guide usually points where to stop."
+        ],
+        "callout": "The cuesta's altitude is also a good photo point, taken calmly."
+      },
+      {
+        "heading": "Salinas Chicas",
+        "paragraphs": [
+          "Nearby there are smaller salt flats that give another scale of the landscape.",
+          "Ask the guide if the route includes them."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Where is the best viewpoint?",
+        "a": "The salt flat viewpoint by Parador La Curva, where the guided route starts; the Cuesta de Lipán adds another view."
+      },
+      {
+        "q": "Can you go down onto the salt flat?",
+        "a": "Yes, on the stretch the guide enables and accompanies; don't go onto the surface on your own."
+      },
+      {
+        "q": "When to stop on the cuesta?",
+        "a": "At the wide curves the guide indicates; altitude and wind call for calm."
+      },
+      {
+        "q": "What are Salinas Chicas?",
+        "a": "Smaller nearby salt flats giving another scale of the landscape; ask if the route includes them."
+      }
+    ]
+  }
+},
+  {
+  "key": "temporada-de-lluvias",
+  "group": "visita",
+  "slug": "temporada-de-lluvias",
+  "slugEn": "rainy-season",
+  "related": [
+    "clima",
+    "mejor-epoca",
+    "seguridad",
+    "cuanto-tiempo",
+    "consejos"
+  ],
+  "es": {
+    "metaTitle": "Temporada de lluvias en Salinas Grandes: qué pasa",
+    "metaDescription": "En verano la Puna llueve y el salar se llena: aparece el efecto espejo, pero el acceso puede cerrarse. Confirmá RN 52 antes de salir.",
+    "h1": "Temporada de lluvias",
+    "lead": "El verano (diciembre a marzo) es la temporada de lluvias en la Puna. El salar se llena de agua y aparece el efecto espejo, pero la ruta y el acceso pueden verse afectados.",
+    "updated": "01/11/2026",
+    "sections": [
+      {
+        "heading": "Qué pasa en el salar",
+        "paragraphs": [
+          "Con la lluvia, la costra se cubre de agua y se forma el espejo que buscan las fotos.",
+          "El acceso depende del estado de la RN 52 y del salar."
+        ],
+        "bullets": [
+          "El espejo es post-lluvia, no garantizado.",
+          "La guía decide si se habilita el recorrido."
+        ],
+        "callout": "No viajes solo por el espejo: confirmá el acceso el día."
+      },
+      {
+        "heading": "La ruta",
+        "paragraphs": [
+          "RN 52 puede tener tramos afectados por lluvia o barro.",
+          "La Cuesta de Lipán, con pendiente, pide precaución si llueve."
+        ],
+        "bullets": [
+          "Consultá el estado de la ruta antes de salir.",
+          "Vehículo apto y guía son clave."
+        ]
+      },
+      {
+        "heading": "Si vas en verano",
+        "paragraphs": [
+          "Llevá ropa que seque rápido y aviso a alguien de tu ruta.",
+          "Las tormentas de tarde son comunes: salí temprano."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "¿Cuándo es la temporada de lluvias?",
+        "a": "En verano, de diciembre a marzo; la Puna recibe las lluvias y el salar se llena."
+      },
+      {
+        "q": "¿Se puede ir igual?",
+        "a": "Sí, pero el acceso depende del estado de RN 52 y del salar; confirmalo el día con la guía."
+      },
+      {
+        "q": "¿El espejo está garantizado?",
+        "a": "No: aparece tras la lluvia y la guía habilita el recorrido según el estado. No viajes solo por esa foto."
+      },
+      {
+        "q": "¿Qué llevar en verano?",
+        "a": "Ropa que seca rápido, aviso de ruta y salir temprano para esquivar tormentas de tarde."
+      }
+    ]
+  },
+  "en": {
+    "metaTitle": "Rainy season at Salinas Grandes: what happens",
+    "metaDescription": "In summer the Puna rains and the salt flat fills: the mirror effect appears, but access can close. Confirm RN 52 before you leave.",
+    "h1": "Rainy season",
+    "lead": "Summer (December to March) is the rainy season in the Puna. The salt flat fills with water and the mirror effect appears, but the route and access can be affected.",
+    "updated": "01/11/2026",
+    "sections": [
+      {
+        "heading": "What happens on the salt flat",
+        "paragraphs": [
+          "With rain, the crust is covered with water and the mirror that photos seek is formed.",
+          "Access depends on the state of RN 52 and the salt flat."
+        ],
+        "bullets": [
+          "The mirror is post-rain, not guaranteed.",
+          "The guide decides whether the route is enabled."
+        ],
+        "callout": "Don't travel just for the mirror: confirm access on the day."
+      },
+      {
+        "heading": "The route",
+        "paragraphs": [
+          "RN 52 can have stretches affected by rain or mud.",
+          "The Cuesta de Lipán, with its slope, calls for caution if it rains."
+        ],
+        "bullets": [
+          "Check the road state before leaving.",
+          "A suitable vehicle and guide are key."
+        ]
+      },
+      {
+        "heading": "If you go in summer",
+        "paragraphs": [
+          "Bring quick-drying clothes and tell someone your route.",
+          "Afternoon storms are common: leave early."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "When is the rainy season?",
+        "a": "In summer, December to March; the Puna gets the rains and the salt flat fills."
+      },
+      {
+        "q": "Can you still go?",
+        "a": "Yes, but access depends on the state of RN 52 and the salt flat; confirm on the day with the guide."
+      },
+      {
+        "q": "Is the mirror guaranteed?",
+        "a": "No: it appears after rain and the guide enables the route by the state. Don't travel just for that photo."
+      },
+      {
+        "q": "What to bring in summer?",
+        "a": "Quick-drying clothes, route notice and leave early to dodge afternoon storms."
+      }
+    ]
+  }
+},
+  {
+  "key": "pueblos-cercanos",
+  "group": "visita",
+  "slug": "pueblos-cercanos",
+  "slugEn": "nearby-towns",
+  "related": [
+    "que-ver-cerca",
+    "desde-purmamarca",
+    "desde-tilcara",
+    "desde-humahuaca",
+    "itinerario"
+  ],
+  "es": {
+    "metaTitle": "Pueblos cercanos a Salinas Grandes: Purmamarca, Tilcara, Humahuaca",
+    "metaDescription": "El salar combina con la Quebrada de Humahuaca: Purmamarca, Tilcara y Humahuaca, más Salinas Chicas. Es un recorrido de varios días.",
+    "h1": "Pueblos cercanos",
+    "lead": "El salar se visita desde la Quebrada de Humahuaca. Purmamarca es la base de RN 52; Tilcara y Humahuaca siguen al norte, y cerca hay salinas menores. Juntarlos es un recorrido de varios días.",
+    "updated": "01/11/2026",
+    "sections": [
+      {
+        "heading": "Purmamarca, la base",
+        "paragraphs": [
+          "Es el punto de partida a RN 52 y la Cuesta de Lipán.",
+          "Tiene alojamiento, comida y el Cerro de los Siete Colores."
+        ],
+        "bullets": [
+          "Ideal para dormir y acortar la jornada al salar.",
+          "Desde aquí se coordina buena parte de las salidas."
+        ]
+      },
+      {
+        "heading": "Tilcara y Humahuaca al norte",
+        "paragraphs": [
+          "Tilcara tiene el Pucará y museos; Humahuaca es cabecera de la Quebrada.",
+          "Están más lejos del salar, pero completan el recorrido."
+        ],
+        "callout": "Si venís del norte, el salar es jornada completa desde Tilcara o Humahuaca."
+      },
+      {
+        "heading": "Salinas Chicas y la Puna",
+        "paragraphs": [
+          "Cerca del gran salar hay salinas menores que dan otra escala.",
+          "La guía puede incluirlas según el recorrido habilitado."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "¿Qué pueblos visitar con el salar?",
+        "a": "Purmamarca (base de RN 52), Tilcara y Humahuaca al norte, más las salinas menores cercanas."
+      },
+      {
+        "q": "¿Cuántos días necesito?",
+        "a": "Al menos dos o tres si querés recorrer la Quebrada y el salar sin apurarte."
+      },
+      {
+        "q": "¿Vale la pena Humahuaca?",
+        "a": "Sí si tenés el día: es cabecera de la Quebrada y queda lejos, pero cierra el recorrido."
+      },
+      {
+        "q": "¿Salinas Chicas está en la ruta?",
+        "a": "Son salinas menores cercanas; consultá si el recorrido con guía las incluye."
+      }
+    ]
+  },
+  "en": {
+    "metaTitle": "Towns near Salinas Grandes: Purmamarca, Tilcara, Humahuaca",
+    "metaDescription": "The salt flat combines with the Quebrada de Humahuaca: Purmamarca, Tilcara and Humahuaca, plus smaller salt flats. A multi-day trip.",
+    "h1": "Nearby towns",
+    "lead": "The salt flat is visited from the Quebrada de Humahuaca. Purmamarca is the RN 52 base; Tilcara and Humahuaca follow north, and there are smaller salt flats nearby. Combining them is a multi-day trip.",
+    "updated": "01/11/2026",
+    "sections": [
+      {
+        "heading": "Purmamarca, the base",
+        "paragraphs": [
+          "It is the starting point to RN 52 and the Cuesta de Lipán.",
+          "It has lodging, food and the Cerro de los Siete Colores."
+        ],
+        "bullets": [
+          "Ideal to sleep and shorten the salt flat day.",
+          "From here much of the outings are arranged."
+        ]
+      },
+      {
+        "heading": "Tilcara and Humahuaca to the north",
+        "paragraphs": [
+          "Tilcara has the Pucará and museums; Humahuaca is the head of the Quebrada.",
+          "They are further from the salt flat but complete the trip."
+        ],
+        "callout": "If you come from the north, the salt flat is a full day from Tilcara or Humahuaca."
+      },
+      {
+        "heading": "Salinas Chicas and the Puna",
+        "paragraphs": [
+          "Near the big salt flat there are smaller salt flats giving another scale.",
+          "The guide may include them per the permitted route."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Which towns to visit with the salt flat?",
+        "a": "Purmamarca (RN 52 base), Tilcara and Humahuaca to the north, plus the nearby smaller salt flats."
+      },
+      {
+        "q": "How many days do I need?",
+        "a": "At least two or three if you want to tour the Quebrada and the salt flat without rushing."
+      },
+      {
+        "q": "Is Humahuaca worth it?",
+        "a": "Yes if you have the day: it is the head of the Quebrada and far, but closes the trip."
+      },
+      {
+        "q": "Are Salinas Chicas on the route?",
+        "a": "They are smaller nearby salt flats; ask if the guided route includes them."
+      }
+    ]
+  }
+},
+  {
+  "key": "dinero-y-cajeros",
+  "group": "visita",
+  "slug": "dinero-y-cajeros",
+  "slugEn": "money-and-atm",
+  "related": [
+    "precios-y-guias",
+    "presupuesto",
+    "donde-comer",
+    "seguridad",
+    "consejos"
+  ],
+  "es": {
+    "metaTitle": "Dinero y cajeros cerca de Salinas Grandes",
+    "metaDescription": "Los pueblos de la Quebrada tienen cajeros limitados y el salar no. Llevá efectivo para la guía, el parador y las compras.",
+    "h1": "Dinero y cajeros",
+    "lead": "En el salar no hay servicios financieros; los pueblos de la Quebrada tienen cajeros limitados y cierran temprano. Llevá efectivo para la guía, el parador y las compras.",
+    "updated": "01/11/2026",
+    "sections": [
+      {
+        "heading": "Dónde hay cajeros",
+        "paragraphs": [
+          "Purmamarca y Tilcara tienen cajeros, pero poca capacidad y filas en temporada.",
+          "Salta y San Salvador de Jujuy tienen red completa antes de entrar a la Puna."
+        ],
+        "bullets": [
+          "Retirá en la ciudad antes de subir.",
+          "No cuentes con el cajero del pueblo el día exacto."
+        ],
+        "callout": "El salar y el parador funcionan en efectivo; llevá billetes pequeños."
+      },
+      {
+        "heading": "Qué pagar allí",
+        "paragraphs": [
+          "La guía local y el cargo de ingreso se pagan en el punto.",
+          "Comida, artesanía y estacionamiento suelen ser efectivo."
+        ],
+        "bullets": [
+          "Preguntá medios de pago aceptados al coordinar.",
+          "Llevá cambio."
+        ]
+      },
+      {
+        "heading": "Seguridad",
+        "paragraphs": [
+          "No andes con mucho efectivo a la vista.",
+          "Distribuí el dinero y guardalo bien en altura y viento."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "¿Hay cajero en el salar?",
+        "a": "No. Los cajeros están en los pueblos y son limitados; retirá en Salta o San Salvador antes de subir."
+      },
+      {
+        "q": "¿Se paga con tarjeta?",
+        "a": "No lo des por hecho en el parador y la guía; llevá efectivo y consultá medios de pago al coordinar."
+      },
+      {
+        "q": "¿Cuánto efectivo llevar?",
+        "a": "Lo suficiente para guía, ingreso, comida y compras; llevá billetes pequeños."
+      },
+      {
+        "q": "¿Dónde cargar dinero?",
+        "a": "En Salta y San Salvador de Jujuy hay red completa; los pueblos de la Quebrada son limitados."
+      }
+    ]
+  },
+  "en": {
+    "metaTitle": "Money and ATMs near Salinas Grandes",
+    "metaDescription": "The Quebrada towns have limited ATMs and the salt flat has none. Carry cash for the guide, the parador and purchases.",
+    "h1": "Money and ATMs",
+    "lead": "There are no financial services on the salt flat; the Quebrada towns have limited ATMs that close early. Carry cash for the guide, the parador and purchases.",
+    "updated": "01/11/2026",
+    "sections": [
+      {
+        "heading": "Where there are ATMs",
+        "paragraphs": [
+          "Purmamarca and Tilcara have ATMs, but low capacity and queues in season.",
+          "Salta and San Salvador de Jujuy have a full network before entering the Puna."
+        ],
+        "bullets": [
+          "Withdraw in the city before going up.",
+          "Don't count on the town ATM on the exact day."
+        ],
+        "callout": "The salt flat and parador run on cash; bring small bills."
+      },
+      {
+        "heading": "What to pay there",
+        "paragraphs": [
+          "The local guide and entry charge are paid on site.",
+          "Food, crafts and parking are usually cash."
+        ],
+        "bullets": [
+          "Ask accepted payment methods when arranging.",
+          "Bring change."
+        ]
+      },
+      {
+        "heading": "Safety",
+        "paragraphs": [
+          "Don't walk around with lots of cash in sight.",
+          "Spread the money and store it well in altitude and wind."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Is there an ATM on the salt flat?",
+        "a": "No. ATMs are in the towns and limited; withdraw in Salta or San Salvador before going up."
+      },
+      {
+        "q": "Can I pay by card?",
+        "a": "Don't assume so at the parador and guide; bring cash and ask payment methods when arranging."
+      },
+      {
+        "q": "How much cash to bring?",
+        "a": "Enough for guide, entry, food and purchases; bring small bills."
+      },
+      {
+        "q": "Where to load money?",
+        "a": "Salta and San Salvador de Jujuy have a full network; the Quebrada towns are limited."
+      }
+    ]
+  }
+},
+  {
+  "key": "senal-y-conectividad",
+  "group": "visita",
+  "slug": "senal-y-conectividad",
+  "slugEn": "connectivity",
+  "related": [
+    "seguridad",
+    "clima",
+    "que-llevar",
+    "consejos",
+    "cuanto-tiempo"
+  ],
+  "es": {
+    "metaTitle": "Señal y conectividad en Salinas Grandes",
+    "metaDescription": "En la Puna la señal de celular es escasa y el salar casi no tiene cobertura. Descargá mapas y avisá tu ruta antes de salir.",
+    "h1": "Señal y conectividad",
+    "lead": "La Puna tiene cobertura de celular escasa y el salar casi no tiene señal. No dependas del teléfono: descargá mapas y avisá tu ruta antes de salir.",
+    "updated": "01/11/2026",
+    "sections": [
+      {
+        "heading": "La señal en la Puna",
+        "paragraphs": [
+          "En la Quebrada hay señal intermitente; al subir a la salar, se pierde.",
+          "El parador puede tener algo de cobertura, pero no lo garantices."
+        ],
+        "bullets": [
+          "Descargá mapas offline antes de salir.",
+          "Compartí tu ruta con alguien."
+        ],
+        "callout": "No planees coordinar por celular una vez en el salar."
+      },
+      {
+        "heading": "Qué llevar",
+        "paragraphs": [
+          "Batería extra y cargador de auto; el frío gasta la batería.",
+          "Una ruta impresa o guardada ayuda si falla el teléfono."
+        ],
+        "bullets": [
+          "Cargá todo en los pueblos.",
+          "Considerá un GPS o app offline."
+        ]
+      },
+      {
+        "heading": "Seguridad",
+        "paragraphs": [
+          "Andá con guía o vehículo conocido; no te internes sin aviso.",
+          "La Cuesta de Lipán y el salar son zonas de poca ayuda cercana."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "¿Hay señal en el salar?",
+        "a": "Casi no: la Puna tiene cobertura escasa y el salar la pierde. Llevá mapas offline y avisá tu ruta."
+      },
+      {
+        "q": "¿Funciona el GPS?",
+        "a": "El GPS del teléfono funciona sin datos si descargaste el mapa; la red para llamar, no siempre."
+      },
+      {
+        "q": "¿Cómo me ubico?",
+        "a": "Con mapa offline y la guía; no dependas de cobertura en la Cuesta de Lipán ni en el salar."
+      },
+      {
+        "q": "¿Recargo el celular donde?",
+        "a": "En los pueblos y el auto; llevá batería extra porque el frío de altura la gasta."
+      }
+    ]
+  },
+  "en": {
+    "metaTitle": "Signal and connectivity at Salinas Grandes",
+    "metaDescription": "In the Puna cell signal is scarce and the salt flat has almost no coverage. Download maps and tell someone your route before leaving.",
+    "h1": "Signal and connectivity",
+    "lead": "The Puna has scarce cell coverage and the salt flat has almost no signal. Don't depend on the phone: download maps and tell someone your route before leaving.",
+    "updated": "01/11/2026",
+    "sections": [
+      {
+        "heading": "Signal in the Puna",
+        "paragraphs": [
+          "In the Quebrada there is intermittent signal; climbing to the salt flat, it is lost.",
+          "The parador may have some coverage, but don't count on it."
+        ],
+        "bullets": [
+          "Download offline maps before leaving.",
+          "Share your route with someone."
+        ],
+        "callout": "Don't plan to coordinate by phone once on the salt flat."
+      },
+      {
+        "heading": "What to bring",
+        "paragraphs": [
+          "Extra battery and car charger; the cold drains the battery.",
+          "A printed or saved route helps if the phone fails."
+        ],
+        "bullets": [
+          "Charge everything in the towns.",
+          "Consider a GPS or offline app."
+        ]
+      },
+      {
+        "heading": "Safety",
+        "paragraphs": [
+          "Go with a guide or known vehicle; don't go deep without notice.",
+          "The Cuesta de Lipán and the salt flat are areas with little nearby help."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Is there signal on the salt flat?",
+        "a": "Almost none: the Puna has scarce coverage and the salt flat loses it. Bring offline maps and tell someone your route."
+      },
+      {
+        "q": "Does GPS work?",
+        "a": "The phone GPS works without data if you downloaded the map; the network to call, not always."
+      },
+      {
+        "q": "How do I locate myself?",
+        "a": "With offline map and the guide; don't depend on coverage on the Cuesta de Lipán or the salt flat."
+      },
+      {
+        "q": "Where do I charge the phone?",
+        "a": "In the towns and the car; bring extra battery because altitude cold drains it."
+      }
+    ]
+  }
+},
+  {
+  "key": "turismo-responsable",
+  "group": "visita",
+  "slug": "turismo-responsable",
+  "slugEn": "responsible-tourism",
+  "related": [
+    "seguridad",
+    "la-sal",
+    "fauna-flora-puna",
+    "consejos",
+    "mascotas"
+  ],
+  "es": {
+    "metaTitle": "Turismo responsable en Salinas Grandes",
+    "metaDescription": "El salar es de la comunidad y un ecosistema frágil. No extraigas sal, no dejes basura y respetá la guía y las zonas habilitadas.",
+    "h1": "Turismo responsable",
+    "lead": "El salar es un espacio de comunidad y un ecosistema frágil de altura. No extraigas sal, no dejes rastro y respetá la guía y las zonas habilitadas.",
+    "updated": "01/11/2026",
+    "sections": [
+      {
+        "heading": "Respetá la comunidad",
+        "paragraphs": [
+          "La visita se hace con guía local porque el salar es de la comunidad.",
+          "Seguí el recorrido habilitado y las indicaciones del guía."
+        ],
+        "bullets": [
+          "No entres a áreas de trabajo por tu cuenta.",
+          "Preguntá antes de fotografiar personas o artesanías."
+        ],
+        "callout": "La guía no es un trámite: es el cuidado del lugar."
+      },
+      {
+        "heading": "No dejes rastro",
+        "paragraphs": [
+          "Llevate toda tu basura; el viento la esparce en la sal.",
+          "No arrojes nada a las lagunas ni al espejo."
+        ],
+        "bullets": [
+          "Usá el parador como base de servicios.",
+          "Dejá el salar como lo encontraste."
+        ]
+      },
+      {
+        "heading": "Cuidá la fauna",
+        "paragraphs": [
+          "La Puna tiene aves y vegetación que toleran poco la presencia.",
+          "Mirá sin perseguir ni alimentar."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "¿Por qué la guía es obligatoria?",
+        "a": "Porque el salar es de la comunidad y el recorrido cuida el lugar; no es un ingreso libre."
+      },
+      {
+        "q": "¿Puedo llevarme sal?",
+        "a": "No: es un ecosistema frágil y de comunidad. No extraigas sal ni dañes la costra."
+      },
+      {
+        "q": "¿Se puede alimentar a las aves?",
+        "a": "No: la fauna de la Puna tolera poco la presencia; mirá sin interferir."
+      },
+      {
+        "q": "¿Qué hago con la basura?",
+        "a": "Llevatela toda; el viento la esparce en la sal. Usá el parador como base."
+      }
+    ]
+  },
+  "en": {
+    "metaTitle": "Responsible tourism at Salinas Grandes",
+    "metaDescription": "The salt flat belongs to the community and is a fragile ecosystem. Don't take salt, leave no litter and respect the guide and permitted areas.",
+    "h1": "Responsible tourism",
+    "lead": "The salt flat is a community space and a fragile high-altitude ecosystem. Don't take salt, leave no trace and respect the guide and permitted areas.",
+    "updated": "01/11/2026",
+    "sections": [
+      {
+        "heading": "Respect the community",
+        "paragraphs": [
+          "The visit is with a local guide because the salt flat belongs to the community.",
+          "Follow the permitted route and the guide's instructions."
+        ],
+        "bullets": [
+          "Don't enter work areas on your own.",
+          "Ask before photographing people or crafts."
+        ],
+        "callout": "The guide is not a formality: it is the care of the place."
+      },
+      {
+        "heading": "Leave no trace",
+        "paragraphs": [
+          "Take all your litter; the wind spreads it on the salt.",
+          "Don't throw anything into the lagoons or the mirror."
+        ],
+        "bullets": [
+          "Use the parador as the service base.",
+          "Leave the salt flat as you found it."
+        ]
+      },
+      {
+        "heading": "Protect the wildlife",
+        "paragraphs": [
+          "The Puna has birds and vegetation that tolerate little presence.",
+          "Watch without chasing or feeding."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Why is the guide mandatory?",
+        "a": "Because the salt flat belongs to the community and the route cares for the place; it is not free entry."
+      },
+      {
+        "q": "Can I take salt?",
+        "a": "No: it is a fragile community ecosystem. Don't take salt or damage the crust."
+      },
+      {
+        "q": "Can I feed the birds?",
+        "a": "No: Puna wildlife tolerates little presence; watch without interfering."
+      },
+      {
+        "q": "What do I do with the litter?",
+        "a": "Take it all; the wind spreads it on the salt. Use the parador as base."
+      }
+    ]
+  }
+},
+  {
+  "key": "mascotas",
+  "group": "visita",
+  "slug": "mascotas",
+  "slugEn": "pets",
+  "related": [
+    "con-ninos",
+    "accesibilidad",
+    "seguridad",
+    "turismo-responsable",
+    "donde-dormir"
+  ],
+  "es": {
+    "metaTitle": "Mascotas en Salinas Grandes: conviene llevarlas",
+    "metaDescription": "La altura, la sal y el recorrido con guía dificultan ir con mascotas. Mejor dejalas en el alojamiento de los pueblos.",
+    "h1": "Mascotas",
+    "lead": "Llevar mascotas al salar es complicado: la altura, la sal abrasiva y el recorrido con guía no son ideales para ellas. Mejor dejalas en el alojamiento de los pueblos.",
+    "updated": "01/11/2026",
+    "sections": [
+      {
+        "heading": "Por qué es difícil",
+        "paragraphs": [
+          "La altura afecta también a los animales; la sal irrita patas y la superficie corta.",
+          "El recorrido con guía no está pensado para mascotas sueltas."
+        ],
+        "bullets": [
+          "Consultá al proveedor si aceptan mascotas en el vehículo.",
+          "El parador no es lugar para dejarlas solas."
+        ],
+        "callout": "No las dejes en el auto sobre el salar: el sol y la sal castigan."
+      },
+      {
+        "heading": "Mejor en los pueblos",
+        "paragraphs": [
+          "Purmamarca, Tilcara y Humahuaca suelen tener alojamiento que acepta mascotas.",
+          "Así recorrés el salar tranquilo y ellas descansan."
+        ],
+        "bullets": [
+          "Confirmá la política de mascotas al reservar.",
+          "Llevá agua y sombra para ellas en la Quebrada."
+        ]
+      },
+      {
+        "heading": "Si igual las llevás",
+        "paragraphs": [
+          "Protegé las patas y llevá agua; la sal y el viento son duros.",
+          "Mantenelas cerca y no las dejes sobre la costra."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "¿Se puede ir con perro?",
+        "a": "Es complicado: altura, sal y guía no son ideales; mejor dejalo en el alojamiento de los pueblos."
+      },
+      {
+        "q": "¿Aceptan mascotas en el tour?",
+        "a": "Consultalo al proveedor; el recorrido con guía no suele estar pensado para mascotas sueltas."
+      },
+      {
+        "q": "¿La sal daña las patas?",
+        "a": "Puede irritarlas y cortar; protegelas y evitá dejarlas sobre la costra."
+      },
+      {
+        "q": "¿Dónde dejarlas?",
+        "a": "En el alojamiento de Purmamarca, Tilcara o Humahuaca que acepte mascotas; no en el auto sobre el salar."
+      }
+    ]
+  },
+  "en": {
+    "metaTitle": "Pets at Salinas Grandes: is it worth bringing them",
+    "metaDescription": "Altitude, salt and the guided route make pets hard to bring. Better leave them at town lodging.",
+    "h1": "Pets",
+    "lead": "Bringing pets to the salt flat is complicated: the altitude, abrasive salt and guided route are not ideal for them. Better leave them at the town lodging.",
+    "updated": "01/11/2026",
+    "sections": [
+      {
+        "heading": "Why it is hard",
+        "paragraphs": [
+          "Altitude also affects animals; salt irritates paws and the surface cuts.",
+          "The guided route is not designed for loose pets."
+        ],
+        "bullets": [
+          "Ask the provider if they accept pets in the vehicle.",
+          "The parador is not a place to leave them alone."
+        ],
+        "callout": "Don't leave them in the car on the salt flat: sun and salt punish."
+      },
+      {
+        "heading": "Better in the towns",
+        "paragraphs": [
+          "Purmamarca, Tilcara and Humahuaca often have pet-friendly lodging.",
+          "That way you tour the salt flat calmly and they rest."
+        ],
+        "bullets": [
+          "Confirm the pet policy when booking.",
+          "Bring water and shade for them in the Quebrada."
+        ]
+      },
+      {
+        "heading": "If you bring them anyway",
+        "paragraphs": [
+          "Protect the paws and bring water; salt and wind are harsh.",
+          "Keep them close and don't leave them on the crust."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Can I go with a dog?",
+        "a": "It is complicated: altitude, salt and guide are not ideal; better leave it at town lodging."
+      },
+      {
+        "q": "Do tours accept pets?",
+        "a": "Ask the provider; the guided route is usually not designed for loose pets."
+      },
+      {
+        "q": "Does salt hurt paws?",
+        "a": "It can irritate and cut them; protect them and avoid leaving them on the crust."
+      },
+      {
+        "q": "Where to leave them?",
+        "a": "At Purmamarca, Tilcara or Humahuaca lodging that accepts pets; not in the car on the salt flat."
+      }
+    ]
+  }
+},
+  {
+  "key": "mejor-puesta-de-sol",
+  "group": "visita",
+  "slug": "mejor-puesta-de-sol",
+  "slugEn": "best-sunset",
+  "related": [
+    "mejor-hora-dia",
+    "fotografia",
+    "efecto-espejo",
+    "mejores-miradores",
+    "clima"
+  ],
+  "es": {
+    "metaTitle": "Mejor puesta de sol en Salinas Grandes y la Puna",
+    "metaDescription": "El salar blanco se ve mejor a la luz pareja del día; la puesta se disfruta desde la Cuesta de Lipán o los pueblos. La guía marca el horario.",
+    "h1": "Mejor puesta de sol",
+    "lead": "El salar blanco luce mejor con luz pareja, pero la puesta de sol se disfruta desde la Cuesta de Lipán o los pueblos de la Quebrada. La guía marca el horario del recorrido.",
+    "updated": "01/11/2026",
+    "sections": [
+      {
+        "heading": "En el salar",
+        "paragraphs": [
+          "A la tarde la luz se calienta, pero el recorrido con guía tiene horario de cierre.",
+          "El espejo tras la lluvia atrapa el cielo al atardecer."
+        ],
+        "bullets": [
+          "Consultá hasta qué hora habilita la guía.",
+          "No te quedes solo en el salar al oscurecer."
+        ],
+        "callout": "El salar no es un mirador de puesta libre: el acceso es con guía y horario."
+      },
+      {
+        "heading": "Mejores lugares",
+        "paragraphs": [
+          "La Cuesta de Lipán, de bajada, da panorámica de la Puna al sol bajo.",
+          "Purmamarca y el Cerro de los Siete Colores también cierran bien el día."
+        ],
+        "bullets": [
+          "Planificá la vuelta antes de que se vaya la luz.",
+          "Llevá abrigo: en altura enfría rápido al sol."
+        ]
+      },
+      {
+        "heading": "Foto al atardecer",
+        "paragraphs": [
+          "El contraste blanco y cielo rosado es fuerte; cuidá la exposición.",
+          "Un filtro ayuda; el viento pide trípode firme."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "¿Se puede ver la puesta en el salar?",
+        "a": "El recorrido con guía tiene horario; consultá hasta qué hora habilita y no te quedes solo al oscurecer."
+      },
+      {
+        "q": "¿Dónde mejor la puesta?",
+        "a": "Desde la Cuesta de Lipán o los pueblos de la Quebrada; el salar en sí cierra con la guía."
+      },
+      {
+        "q": "¿El espejo a la tardecita?",
+        "a": "Tras la lluvia, sí; pero no está garantizado ni siempre habilitado al atardecer."
+      },
+      {
+        "q": "¿Hace frío al atardecer?",
+        "a": "Sí, en altura enfría rápido al bajar el sol; llevá abrigo."
+      }
+    ]
+  },
+  "en": {
+    "metaTitle": "Best sunset at Salinas Grandes and the Puna",
+    "metaDescription": "The white salt flat shows best in even daylight; the sunset is enjoyed from the Cuesta de Lipán or the towns. The guide sets the time.",
+    "h1": "Best sunset",
+    "lead": "The white salt flat looks best in even light, but the sunset is enjoyed from the Cuesta de Lipán or the Quebrada towns. The guide sets the route time.",
+    "updated": "01/11/2026",
+    "sections": [
+      {
+        "heading": "On the salt flat",
+        "paragraphs": [
+          "In the afternoon the light warms, but the guided route has a closing time.",
+          "The mirror after rain traps the sky at dusk."
+        ],
+        "bullets": [
+          "Ask until what time the guide enables it.",
+          "Don't stay alone on the salt flat after dark."
+        ],
+        "callout": "The salt flat is not a free sunset viewpoint: access is with guide and schedule."
+      },
+      {
+        "heading": "Best places",
+        "paragraphs": [
+          "The Cuesta de Lipán, descending, gives a Puna panorama at low sun.",
+          "Purmamarca and the Cerro de los Siete Colores also close the day well."
+        ],
+        "bullets": [
+          "Plan the return before the light goes.",
+          "Bring a jacket: at altitude it cools fast as the sun drops."
+        ]
+      },
+      {
+        "heading": "Dusk photo",
+        "paragraphs": [
+          "The white-and-pink-sky contrast is strong; watch exposure.",
+          "A filter helps; wind calls for a steady tripod."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Can you see the sunset on the salt flat?",
+        "a": "The guided route has a schedule; ask until what time it is enabled and don't stay alone after dark."
+      },
+      {
+        "q": "Where is the best sunset?",
+        "a": "From the Cuesta de Lipán or the Quebrada towns; the salt flat itself closes with the guide."
+      },
+      {
+        "q": "Mirror at dusk?",
+        "a": "After rain, yes; but not guaranteed nor always enabled at dusk."
+      },
+      {
+        "q": "Is it cold at dusk?",
+        "a": "Yes, at altitude it cools fast as the sun drops; bring a jacket."
+      }
+    ]
+  }
+},
+  {
+  "key": "visita-en-invierno",
+  "group": "visita",
+  "slug": "visita-en-invierno",
+  "slugEn": "winter-visit",
+  "related": [
+    "clima",
+    "mejor-epoca",
+    "temporada-de-lluvias",
+    "que-llevar",
+    "consejos"
+  ],
+  "es": {
+    "metaTitle": "Visitar Salinas Grandes en invierno: lo que cambia",
+    "metaDescription": "El invierno (junio a agosto) es seco y da el salar blanco más limpio, pero hace mucho frío. Llevá abrigo real y confirmá RN 52.",
+    "h1": "Visita en invierno",
+    "lead": "El invierno (junio a agosto) es la estación seca: el salar queda blanco y limpio, con cielo claro. Pero hace mucho frío, sobre todo de noche, y la ruta puede tener hielo en la cuesta.",
+    "updated": "01/11/2026",
+    "sections": [
+      {
+        "heading": "Qué encontrás",
+        "paragraphs": [
+          "Sin lluvia, la costra blanca está al descubierto y el cielo es claro.",
+          "Es buena época para la foto del salar entero."
+        ],
+        "bullets": [
+          "Menos espejo, más blanco puro.",
+          "Días cortos y sol fuerte."
+        ],
+        "callout": "El invierno da el salar más 'salar', pero castiga el frío."
+      },
+      {
+        "heading": "El frío",
+        "paragraphs": [
+          "De noche y a la madrugada la temperatura baja mucho en altura.",
+          "La Cuesta de Lipán puede tener hielo o niebla matinal."
+        ],
+        "bullets": [
+          "Abrigo en capas y guantes.",
+          "Arrancá con el auto ya calentado."
+        ]
+      },
+      {
+        "heading": "La ruta",
+        "paragraphs": [
+          "RN 52 suele estar seca, pero confirmá estado y horario de guía.",
+          "El viento de invierno es fuerte en la superficie."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "¿Qué meses son invierno?",
+        "a": "Junio a agosto; es la estación seca y da el salar blanco más limpio."
+      },
+      {
+        "q": "¿Hace mucho frío?",
+        "a": "Sí, sobre todo de noche y madrugada en altura; abrigo en capas y guantes."
+      },
+      {
+        "q": "¿Se ve el espejo en invierno?",
+        "a": "Casi no: sin lluvia la costra queda blanca; el espejo es de la temporada de lluvias."
+      },
+      {
+        "q": "¿La ruta está bien?",
+        "a": "RN 52 suele estar seca, pero confirmá estado y horario de la guía; la cuesta puede tener hielo."
+      }
+    ]
+  },
+  "en": {
+    "metaTitle": "Visiting Salinas Grandes in winter: what changes",
+    "metaDescription": "Winter (June to August) is dry and gives the cleanest white salt flat, but it is very cold. Bring real warm gear and confirm RN 52.",
+    "h1": "Winter visit",
+    "lead": "Winter (June to August) is the dry season: the salt flat stays white and clean, with clear sky. But it is very cold, especially at night, and the route can have ice on the cuesta.",
+    "updated": "01/11/2026",
+    "sections": [
+      {
+        "heading": "What you find",
+        "paragraphs": [
+          "Without rain, the white crust is exposed and the sky is clear.",
+          "It is a good season for a photo of the whole salt flat."
+        ],
+        "bullets": [
+          "Less mirror, more pure white.",
+          "Short days and strong sun."
+        ],
+        "callout": "Winter gives the salt flat most 'salt', but the cold is harsh."
+      },
+      {
+        "heading": "The cold",
+        "paragraphs": [
+          "At night and dawn the temperature drops a lot at altitude.",
+          "The Cuesta de Lipán can have ice or morning fog."
+        ],
+        "bullets": [
+          "Layered warm clothing and gloves.",
+          "Start with the car already warmed."
+        ]
+      },
+      {
+        "heading": "The route",
+        "paragraphs": [
+          "RN 52 is usually dry, but confirm state and guide schedule.",
+          "Winter wind is strong on the surface."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Which months are winter?",
+        "a": "June to August; it is the dry season and gives the cleanest white salt flat."
+      },
+      {
+        "q": "Is it very cold?",
+        "a": "Yes, especially at night and dawn at altitude; layered warm clothing and gloves."
+      },
+      {
+        "q": "Is the mirror seen in winter?",
+        "a": "Almost not: without rain the crust stays white; the mirror is from the rainy season."
+      },
+      {
+        "q": "Is the route fine?",
+        "a": "RN 52 is usually dry, but confirm state and guide schedule; the cuesta can have ice."
+      }
+    ]
+  }
+}
 ];
 
 export function getTopic(key: string): Topic | undefined {
